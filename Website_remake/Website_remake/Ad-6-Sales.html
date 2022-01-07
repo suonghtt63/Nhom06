@@ -1,0 +1,143 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Khuyến mãi</title>
+    <!--icon logo trên tiêu đề-->
+    <link rel="shortcut icon" href="logo/nền trong suốt.png" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        * {
+            font-family: Quicksand
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: ThreeDLightShadow;
+        }
+
+        th {
+            background-color: black;
+            color: white
+        }
+
+        .none {
+            color: red;
+            font-weight: 400
+        }
+
+        .process {
+            color: yellow;
+            font-weight: 400
+        }
+
+        .done {
+            color: limegreen;
+            font-weight: 400
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+    <script type="text/javascript">
+        var str = "<khuyenmais><khuyenmai><STT>1</STT>" +
+            "<Mota>Chương trình khuyến mãi: Deal hời - MUA 1 TẶNG 1 (giảm 50% cho nhóm sản phẩm SALE OFF khi mua 5 sản phẩm trở lên)</Mota>" +
+            "<BatDau>09/09/2021 00:00 SA</BatDau>" +
+            "<KetThuc>10/09/2021 23:59 CH</KetThuc>" +
+            "<NguoiTao>Trần Thị Hạnh Trang</NguoiTao></khuyenmai>"
+            +
+            "<khuyenmai><STT>2</STT>" +
+            "<Mota>Chương trình khuyến mãi: Khuyến mãi giờ vàng (giảm 35% cho tất cả các sản phẩm trong khung giờ 21- 22h)</Mota>" +
+            "<BatDau>10/10/2021 21:00 CH</BatDau>" +
+            "<KetThuc>10/10/2021 22:00 CH</KetThuc>" +
+            "<NguoiTao>Trần Thị Diễm Châu</NguoiTao></khuyenmai>"
+            +
+            "<khuyenmai><STT>3</STT>" +
+            "<Mota>Chương trình khuyến mãi: Deal hời - MUA 2 TẶNG 1 (giảm 50% cho nhóm sản phẩm SALE OFF khi mua 5 sản phẩm trở lên)</Mota>" +
+            "<BatDau>11/11/2021 15:35 CH</BatDau>" +
+            "<KetThuc>15/11/2021 00:00 SA</KetThuc>" +
+            "<NguoiTao>Hồ Thị Như Thảo</NguoiTao></khuyenmai>"
+            +
+            "<khuyenmai><STT>4</STT>" +
+            "<Mota>Chương trình khuyến mãi: Bán hàng theo combo (Khách hàng sẽ được hưởng với mức giá ưu đãi khi mua cả combo sản phẩm)</Mota>" +
+            "<BatDau>17/12/2021 12:00 CH</BatDau>" +
+            "<KetThuc>31/12/2021 00:00 SA</KetThuc>" +
+            "<NguoiTao>Hoàng Thị Thu Sương</NguoiTao></khuyenmai>"
+            +
+            "<khuyenmai><STT>5</STT>" +
+            "<Mota>Chương trình khuyến mãi: Khuyến mãi tri ân khách hàng </Mota>" +
+            "<BatDau>01/01/2022 00:00 SA</BatDau>" +
+            "<KetThuc>02/01/2022 9:00 SA</KetThuc>" +
+            "<NguoiTao>Lê Nguyễn Thu Thắm</NguoiTao></khuyenmai>"
+            +
+            "<khuyenmai><STT>6</STT>" +
+            "<Mota>Chương trình khuyến mãi: Giảm giá - Thanh lý cuối năm (giảm 50% cho nhóm sản phẩm SALE OFF khi mua 5 sản phẩm trở lên)</Mota>" +
+            "<BatDau>29/12/2021 12:00 CH</BatDau>" +
+            "<KetThuc>31/12/2021 00:00 SA</KetThuc>" +
+            "<NguoiTao>Trần Thị Hạnh Trang</NguoiTao></khuyenmai></khuyenmais > ";
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(str, "text/xml");
+        function loadData() {
+            var x, i, table;
+            table = "<tr><th >STT</th><th>Mô tả</th><th >Bắt đầu</th><th >Kết thúc</th><th >Người tạo</th></tr>";
+            x = xmlDoc.getElementsByTagName("khuyenmai")
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("STT")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("Mota")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("BatDau")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("KetThuc")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("NguoiTao")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("myTB").innerHTML = table;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <input class="btn-flat btn-hover" type="button" value="CHƯƠNG TRÌNH KHUYẾN MÃI" onclick="loadData()" />
+    </center>
+    <br />
+    <table id="myTB">
+    </table>
+</body>
+</html>

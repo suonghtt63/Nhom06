@@ -1,0 +1,1084 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--icon logo trên tiêu đề-->
+    <link rel="shortcut icon" href="logo/nền trong suốt.png" />
+    <title>Sản phẩm chi tiết</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+
+        .btn-view {
+            display: inline-block;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            padding: 15px 35px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+        }
+
+
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: black;
+            color: white;
+            padding: 15px 35px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-top: 20px
+        }
+
+        .btn-flat-like {
+            display: inline-block;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            color: white;
+            margin-left: 20px;
+            padding: 15px 35px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-top: 20px
+        }
+
+        .btn-flat-now {
+            display: inline-block;
+            border: 2px solid var(--red);
+            background-color: var(--red);
+            color: white;
+            padding: 15px 35px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-top: 20px
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: white;
+                color: black;
+            }
+        .btn-like-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-like-hover:hover {
+                background-color: white;
+                color: var(--second-bg-color);
+            }
+        .btn-bag-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-bag-hover:hover {
+                background-color: white;
+                color: var(--red);
+            }
+
+        .product-btn {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-card:hover .product-btn {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .product-btn > * ~ * {
+            margin-left: 5px;
+        }
+
+        .btn-shop-now,
+        .btn-cart-add {
+            font-size: 15px;
+            padding: 5px 10px;
+            line-height: 17px;
+        }
+
+        .btn-view-description {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .product-card {
+            background-color: var(--main-bg-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+            .product-card:hover {
+                background-color: ThreeDHighlight;
+                box-shadow: var(--second-bg-color) 0px 5px 20px 0;
+                transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+        .product-card-img {
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+            .product-card-img img {
+                max-height: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+
+                .product-card-img img:nth-child(2) {
+                    display: none;
+                }
+
+        .product-card:hover .product-card-img img:nth-child(1) {
+            display: none;
+        }
+
+        .product-card:hover .product-card-img img:nth-child(2) {
+            display: block;
+        }
+
+        .product-card-info {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-card-price {
+            font-size: 15px;
+        }
+
+            .product-card-price .curr-price {
+                margin-left: 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--red);
+            }
+
+
+        .sp-item-name {
+            font-size: 55px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .sp-item-description {
+            margin-bottom: 60px;
+            width: 500px;
+            text-align: justify;
+        }
+
+
+        .breadcumb {
+            font-weight: bold;
+            padding: 10px;
+            font-size: 14px
+        }
+
+            .breadcumb a {
+                text-transform: capitalize;
+            }
+
+                .breadcumb a:hover {
+                    color: var(--red);
+                }
+
+            .breadcumb span {
+                margin: 0 10px;
+            }
+
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+            .pagination > li > a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                margin-left: 5px;
+                font-size: 20px;
+            }
+
+                .pagination > li > a.active {
+                    background-color: var(--black);
+                    color: white;
+                }
+
+                .pagination > li > a:hover {
+                    border: 2px solid var(--black);
+                }
+
+        .product-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .product-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .product-img > img {
+                max-width: 70%;
+            }
+
+        .product-img-list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-item {
+            width: 90px;
+            cursor: pointer;
+            margin: 0 10px;
+            border: 1px solid var(--third-bg-color);
+        }
+
+
+            .product-img-item:hover {
+                background-color: #C18989;
+            }
+
+        .product-related {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-related {
+            width: 320px;
+            cursor: pointer;
+            margin: 0 10px;
+            grid-auto-rows: auto;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            border-radius: 0px 0px 20px 20px
+        }
+
+        .product-img-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .product-img-hover:hover {
+                border: 2px solid #c7c7c7;
+                background-color: #c7c7c7;
+                color: black;
+            }
+
+        .product-name {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            color: maroon
+        }
+
+        .product-price-origin {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            color: var(--red);
+        }
+
+        .product-row {
+            padding: 45px 0;
+        }
+
+        .product-info > * ~ * {
+            margin-top: 25px;
+        }
+
+        .product-info-detail-title {
+            font-weight: 600;
+            color: gray;
+        }
+
+        .product-description {
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        .product-info-price {
+            font-weight: 600;
+            font-size: 30px;
+            color: var(--red);
+        }
+
+        .product-quantity-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .product-quantity {
+            margin: 0 10px;
+            font-size: 25px;
+        }
+
+        .product-quantity-btn {
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+            .product-quantity-btn i {
+                font-size: 20px;
+                color: var(--main-bg-color);
+            }
+
+        rating {
+            margin-top: 20px;
+            height: 40px;
+            width: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .rating i {
+            color: #ffc107;
+        }
+
+        .box-header {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+
+        .box-header-center {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            text-align: center
+        }
+
+        .product-detail-description {
+            padding-left: 20px;
+            padding-right: 20px;
+            position: relative;
+            margin-bottom: 90px;
+        }
+
+        .product-detail-description-content {
+            text-align: justify;
+            align-items: center;
+            line-height: 26px;
+            font-size: 16px;
+            height: 300px;
+            overflow-y: hidden;
+            position: relative;
+        }
+
+            .product-detail-description-content > img {
+                display: block;
+                padding: 20px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .product-detail-description-content.active {
+                height: max-content;
+            }
+
+
+
+        .user-rate {
+            margin-bottom: 40px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .user-avt {
+            height: 80px;
+            width: 80px;
+            margin-right: 20px;
+            border-radius: 50%;
+            overflow: hidden
+        }
+
+        .user-name {
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .name {
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: capitalize;
+            margin: 10px 0px;
+        }
+
+        .user-rate-content {
+            margin-left: 50px;
+            margin-right: 50px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <!-- mobile menu -->
+        <div class="mobile-menu bg-main">
+            <a href="index.html"><img class="mb-logo" src="logo/5-ngang.png" height="50" /></a>
+            <span class="mb-menu-toggle" id="mb-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </span>
+        </div>
+        <!-- end mobile menu -->
+        <!-- main header -->
+        <div class="header-wrapper" id="header-wrapper">
+            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+                <i class='bx bx-x'></i>
+            </span>
+            <!-- top header -->
+            <div class="bg-second">
+                <div class="top-header container">
+                    <ul class="devided">
+                        <li>
+                            <a href="#">Hotline: 840123456789</a>
+                        </li>
+                        <li>
+                            <a href="#"> wasabishop@mail.com</a>
+                        </li>
+                    </ul>
+                    <ul class="devided">
+                        <li class="dropdown">
+                            <a href="">Ban quản trị</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="AdminDangNhap.html">Đăng nhập </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end top header -->
+            <!-- mid header -->
+            <div class="bg-main">
+                <div class="mid-header container">
+                    <a href="index.html"><img class="logo" src="logo/5-ngang.png" height="55" /></a>
+                    <div class="search">
+                        <input type="text" placeholder="Nhập nội dung tìm kiếm...">
+                        <i class='bx bx-search-alt'></i>
+                    </div>
+                    <ul class="user-menu">
+                        <li class="dropdown">
+                            <a href="">Tài khoản</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="DangNhap.html">Đăng nhập </a></li>
+                                <li><a href="DangKy.html">Đăng ký </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-notice">
+                            <a href=""><i class='bx bx-bell'></i></a>
+                            <ul class="dropdown-content-notice">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bạn nhận được 2 voucher giảm giá trong tháng này! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Sản phẩm ở giỏ hàng của bạn đang được giảm giá, mua ngay! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Năm hết tết đến rồi, cùng Wasabi chốt đơn cuối năm nào! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được xác nhận thanh toán COD! </a></li>
+                                <li style=" padding: 20px"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bag">
+                            <a href="GioHang.html"><i class='bx bx-shopping-bag'></i></a>
+                            <ul class="dropdown-content-bag">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bộ mặt nạ đất sét cấp ẩm làm sáng da 10 miếng</a><img src="images/1.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Phấn má hồng 3 trong 1 makup tone hot girl </a><img src="images/4.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 0px dotted"><a href="GioHang.html"><input type="button" class="btn-bag btn-bag-hover" value="Đi đến giỏ hàng" /></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end mid header -->
+            <!-- bottom header -->
+            <div class="bg-second">
+                <div class="bottom-header container">
+                    <ul class="main-menu">
+                        <li><a href="index.html">trang chủ</a></li>
+                        <li><a href="TrangGioiThieu.html">giới thiệu</a></li>
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="" onclick="location.assign('TrangSanPham.html')">
+                                sản phẩm
+                                <i class='bx bxs-chevron-down'></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="1-TrangDiem.html">Trang điểm</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Trang điểm mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm môi</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng, serum</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="3-ChamSocMat.html">Chăm sóc mắt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng da</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ mắt </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="4-Combo.html">Combo</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Combo trang điểm</a></li>
+                                                <li><a href="TrangSanPham.html">Combo da mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Combo cho mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <li><a href="TrangKhuyenMai.html">khuyến mãi</a></li>
+                        <li><a href="TrangBlog1.html">blog</a></li>
+                        <li><a href="TrangLienHe.html">liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end bottom header -->
+        </div>
+        <!-- end main header -->
+    </header>
+    <!-- end header -->
+
+    <!-- product-detail content -->
+    <div class="bg-main">
+        <!-- hàng đường dẫn -->
+        <div class="breadcumb" style="border-bottom: 0.5px dotted ">
+            <a href="index.html">Trang chủ</a>
+            <span><img src="icons/right.png" width="10" height="10" /></span>
+            <a href="TrangSanPham.html">Sản phẩm</a>
+            <span><img src="icons/right.png" width="10" height="10" /></span>
+            <a href="TrangSanPhamChiTiet.html">Son</a>
+        </div>
+
+        <!--hàng sp và giá-->
+        <div class="row product-row" style="border-bottom: 0.5px solid #893939; margin: 10px">
+            <!--Cột 1 hình ảnh-->
+            <div class="col-6 col-md-12">
+
+                <!--Hình chính-->
+                <div class=" product-img" id="product-img" onclick="zoom(event)">
+                    <img src="./images/spnb11-1.jpg" alt="">
+                    <!--<script>
+                        function zoom(event) {
+                            var zoomer = event.currentTarget;
+                            x = event.offsetX / zoomer.offsetWidth * 100;
+                            y = event.offsetY / zoomer.offsetHeight * 100;
+                            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+                        }
+                    </script>-->
+                </div>
+                <!--3 hình nhỏ-->
+                <div class="box">
+                    <div class="product-img-list">
+                        <div class="product-img-item">
+                            <img src="./images/spnb11-1.jpg" alt="">
+                        </div>
+                        <div class="product-img-item">
+                            <img src="./images/spnb11-2.jpg" alt="">
+                        </div>
+                        <div class="product-img-item">
+                            <img src="./images/spnb11-3.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!--hết 3 hình nhỏ-->
+            </div>
+            <!--Hết cột 1 hình ảnh-->
+            <!--Cột 2 thông tin-->
+            <div class="col-6 col-md-12">
+                <div class="product-info">
+                    <!--Tên sp-->
+                    <div class="product-info">
+                        <h2>
+                            Bảng Mắt 4 Ô Màu Black Rouge Crystal Heart Lock Shadow CH01
+                        </h2>
+                    </div>
+                    <!--thương hiệu-->
+                    <div class="product-info-detail">
+                        <span class="product-info-detail-title">Thương hiệu:</span>
+                        <span class="breadcumb"><a href="#">Black Rouge</a></span>
+                    </div>
+                    <!--tình trạng sp-->
+                    <div class="product-info-detail">
+                        <span class="product-info-detail-title">Tình trạng: </span>
+                        <a>Còn hàng</a>
+                    </div>
+                    <!--mô tả ngắn gọn-->
+                    <div class="product-description">
+                        <p>
+                            Crystal Heart Lock Shadow – bảng phấn mắt 4 màu đa công dụng của nhà Black Rouge cho bạn thỏa sức mix & match để tạo ra makeup look phù hợp nhất.
+                        </p>
+                    </div>
+
+                    <!--giá-->
+                    <div class="product-info-price">180.000 đ</div>
+                    <!--Số lượng-->
+                    <div class="product-quantity-wrapper">
+                        <span class="product-quantity-btn"><i><img src="icons/minus.png" /></i></span>
+                        <span class="product-quantity">1</span>
+                        <span class="product-quantity-btn"> <i> <img src="icons/pluse.png" /></i></span>
+                    </div>
+                    <!--Thêm vào giỏ & yêu thích-->
+                    <div class="row">
+                        <div style="margin-left: 15px">
+                            <button class="btn-flat-now btn-bag-hover">Thêm vào giỏ hàng</button>
+                        </div>
+                        <div>
+                            <button class="btn-flat-like btn-like-hover">
+                                <i> <img src="icons/heart-red.png" width="15" height="15" /></i>
+                                &nbsp; Yêu thích
+                            </button>
+                        </div>
+                    </div>
+
+                    <!--Mua ngay-->
+                    <div>
+                        <button class="btn-flat btn-hover">Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+            <!--Hết cột 2-->
+        </div>
+        <!--hết hàng sp và giá-->
+        <!--Hàng chi tiết sp-->
+        <div class="box col-12 col-md-12 col-sm-12"
+             style="padding-bottom: 10px; border-bottom: 0.5px solid #893939;">
+            <!--Hàng tiêu đề-->
+            <div class="box-header" style="margin-left: 10px">
+                CHI TIẾT SẢN PHẨM:
+            </div>
+            <!--Hang mô tả-->
+            <div class="product-detail-description">
+                <!--Mô tả chữ-->
+                <div class="product-detail-description-content">
+                    <p>
+                        Crystal Heart Lock Shadow – bảng phấn mắt 4 màu đa công dụng của nhà Black Rouge cho bạn thỏa sức mix & match để tạo ra makeup look phù hợp nhất.
+
+                        Vỏ hộp hình vuông, có hoa văn trái tim hologram.
+
+                        Nắp trên: vỏ nhựa phủ nhung tạo cảm giác mềm mại, có thể nhìn thấy các màu sắc bên trong.
+
+                        Bên trong có 4 ô màu gồm cả nhũ và lì, bạn có thể tự do sáng tạo theo cách của bạn với phong cách từ đáng yêu đến rực rỡ.
+
+                        Kích thước nhỏ nhắn, dễ thương, nằm gọn trong lòng bàn tay.
+
+                        Dễ sử dụng với cả người mới tập makeup vì chất phấn mịn, màu sắc trung tính và tiệp nhanh vào da
+
+                        Công nghệ Color Lock giúp bao bọc các hạt phấn pigment bằng lớp màng no sebum tăng khả năng bám màu, hạn chế fall-out và dầu thừa trên mi mắt.
+                    </p>
+                    <p>1 bảng màu gồm 3 chất phấn: lì (matte), nhũ ngọc trai (shimmer), kim tuyến pha lê (glitter).</p>
+                    <img src="./images/spnb11-1.jpg" alt="">
+                    <p>
+                        - Màu 1 (Matte base): chứa chất phấn màu ngả nude, dùng làm base mắt hoặc có thể sử dụng làm màu má nhẹ nhàng.
+                    </p>
+
+                    <img src="./images/spnb11-2.jpg" alt="">
+                    <p>
+                        - Màu 2 (crystal glitter): sự hòa trộn hoàn hảo giữa chất kim tuyến mịn màu và kim tuyến pha lê, cho đôi mắt long lanh rực sáng, có thể tận dụng làm highlight.
+                    </p>
+                    <img src="./images/spnb11-3.jpg" alt="">
+                    <p>
+                        - Màu 3 (pearl shimmer): chất nhũ ngọc trai mềm mịn với khả năng lên màu chuẩn xác sau một lần di cọ. Nhũ ngọc trai cho đôi mắt sáng trong, không quá nổi bật nên vô cùng phù hợp với những makeup look casual.
+                    </p>
+                    <p>
+                        - Màu 4 (Matte grease): Khung màu đậm nhất thường được dùng để nhấn bầu mắt và đuôi để tạo độ sâu. Ngoài ra, nhờ làm lượng sắc tố màu đậm rõ, có thể sử dụng như bột tán chân mày hoặc shading những vùng nhỏ như sống mũi, nhân trung...
+                    </p>
+                </div>
+                <!--Button xem thêm-->
+                <button class="btn-flat btn-hover btn-view-description" id="view-all-description">
+                    Xem thêm
+                </button>
+            </div>
+            <!--Hết hàng mô tả-->
+        </div>
+        <!--Hết hàng chi tiết sp-->
+        <!--Hàng Đánh giá-->
+        <div class="box" style="padding-bottom: 10px; border-bottom: 0.5px solid #893939">
+            <div class="box-header" style="margin-left: 10px">
+                CHI TIẾT SẢN PHẨM:
+            </div>
+            <div>
+                <div class="user-rate">
+                    <div class="user-info">
+                        <div class="user-avt">
+                            <img src="./images/avtchuot.jpg" alt="">
+                        </div>
+                        <div class="user-name">
+                            <span class="name">Nguyễn Văn A</span>
+                            <span class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="user-rate-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ea iste, veritatis nobis amet illum, cum alias magni dolores odio, eius quo excepturi veniam ipsa voluptatibus natus voluptas vero? Aspernatur!
+                    </div>
+                </div>
+                <div class="user-rate">
+                    <div class="user-info">
+                        <div class="user-avt">
+                            <img src="./images/avtchuot.jpg" alt="">
+                        </div>
+                        <div class="user-name">
+                            <span class="name">Nguyễn Văn B</span>
+                            <span class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="user-rate-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ea iste, veritatis nobis amet illum, cum alias magni dolores odio, eius quo excepturi veniam ipsa voluptatibus natus voluptas vero? Aspernatur!
+                    </div>
+                </div>
+                <div class="user-rate">
+                    <div class="user-info">
+                        <div class="user-avt">
+                            <img src="./images/avtchuot.jpg" alt="">
+                        </div>
+                        <div class="user-name">
+                            <span class="name">Nguyễn Văn C</span>
+                            <span class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="user-rate-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ea iste, veritatis nobis amet illum, cum alias magni dolores odio, eius quo excepturi veniam ipsa voluptatibus natus voluptas vero? Aspernatur!
+                    </div>
+                </div>
+                <!--Chuyển trang-->
+                <div class="box">
+                    <div class="box">
+                        <ul class="pagination">
+                            <li><a href="#"><img src="icons/left.png" /></a></li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#"><img src="icons/right.png" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-header" align="center">
+                Sản phẩm tương tự
+            </div>
+            <div class="row" style="padding: 20px">
+                <!--sp 1-->
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="./images/spdeal1-1.png" alt="">
+                            <img src="./images/spdeal1-2.png" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                    <i class='bx bxs-shopping-bag'></i>
+                                </button>
+                                <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                                <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                            </div>
+                            <div class="product-card-name">
+                                Dung dịch chấm mụn...
+                            </div>
+                            <div class="product-card-price">
+                                <div class="curr-price">250,000đ</div>
+                                <del>300,000đ</del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--sp 2-->
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="./images/spdeal2-1.png" alt="">
+                            <img src="./images/spdeal2-2.png" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                    <i class='bx bxs-shopping-bag'></i>
+                                </button>
+                                <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                                <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                            </div>
+                            <div class="product-card-name">
+                                Son Kem Hera Sens...
+                            </div>
+                            <div class="product-card-price">
+                                <div class="curr-price">450,000đ</div>
+                                <del>480.000đ</del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--sp 3-->
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="./images/spdeal3-1.png" alt="">
+                            <img src="./images/spdeal3-2.png" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                    <i class='bx bxs-shopping-bag'></i>
+                                </button>
+                                <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                                <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                            </div>
+                            <div class="product-card-name">
+                                Gel Rửa Tay Thành...
+                            </div>
+                            <div class="product-card-price">
+                                <div class="curr-price">89,000đ</div>
+                                <del>120,000đ</del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--sp 4-->
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="./images/spdeal4-2.png" alt="">
+                            <img src="./images/spdeal4-1.png" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                    <i class='bx bxs-shopping-bag'></i>
+                                </button>
+                                <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                                <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                            </div>
+                            <div class="product-card-name">
+                                Serum Lót Laneige...
+                            </div>
+                            <div class="product-card-price">
+                                <div class="curr-price">79,000đ</div>
+                                <del>90,000đ</del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product-detail content -->
+    <!-- footer -->
+    <footer class="bg-second">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">LIÊN HỆ</h3>
+
+                    <ul class="menu">
+
+                        <li>
+                            <a href="#"><i class='bx bx-current-location'>&nbsp;</i>Hồ Chí Minh, Vietnam</a>
+                        </li>
+                        <li><a href="#"><i class='bx bx-phone-call'>&nbsp;</i>0123456789</a></li>
+                        <li><a href="#"><i class='bx bx-check'>&nbsp;</i>(miễn phí 24/7)</a></li>
+                        <li><a href="#"><i class='bx bx-mail-send'>&nbsp;</i>wasabi@gmail.com</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Sản phẩm</h3>
+                    <ul class="menu">
+                        <li><a href="4-Combo.html">Commbo</a></li>
+                        <li><a href="1-TrangDiem.html">Trang điểm</a></li>
+                        <li><a href="3-ChamSocMat.html">Chăm sóc mắt</a></li>
+                        <li><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Dịch vụ</h3>
+                    <ul class="menu">
+                        <li><a href="TrangBlog1.html">Blog</a></li>
+                        <li><a href="TrangLienHe.html">Liên hệ</a></li>
+                        <li><a href="TrangKhuyenMai.html">Khuyến mãi</a></li>
+                        <li><a href="TrangGioiThieu.html">Các chính sách</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-3 col-md-12 col-sm-12">
+                    <div class="contact">
+                        <h3 class="contact-header">
+                            <img src="logo/nền trong suốt.png" height="100" style="opacity: 0.9" />
+                        </h3>
+                        <p align="center" style="margin-bottom: 10px"><b>Social Media</b></p>
+                        <ul class="contact-socials">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/" target="_blank">
+                                    <i class='bx bxl-facebook-circle'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/" target="_blank">
+                                    <i class='bx bxl-instagram-alt'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pinterest" href="https://www.pinterest.com/" target="_blank">
+                                    <i class='bx bxl-pinterest'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://twitter.com/ " target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-12 col-sm-12">
+                    <p align="center"><b>Đăng kí nhận tin để nhận ưu đãi hấp dẫn hơn!</b></p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Nhập email tại đây...">
+                        <button onclick="alert('Đăng kí nhận tin thành công!')">Đăng kí</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <a href="#">&copy; Bản quyền thuộc về WASABI Team</a>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- app js -->
+    <script src="./js/app.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+
+</html>

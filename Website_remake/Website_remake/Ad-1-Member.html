@@ -1,0 +1,118 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            font-family: Quicksand
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: ThreeDLightShadow;
+        }
+
+        th {
+            background-color: black;
+            color: white
+        }
+
+        .none {
+            color: red;
+            font-weight: 400
+        }
+
+        .process {
+            color: yellow;
+            font-weight: 400
+        }
+
+        .done {
+            color: limegreen;
+            font-weight: 400
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+
+            padding: 10px 20px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+    <script>
+        function loadXMLDataSV() {
+            var xmlhttp = new XMLHttpRequest;
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    dataSinhVien(this);
+                }
+            };
+            xmlhttp.open("GET", "data/member_catalog.xml", true);
+            xmlhttp.send();
+        }
+        function dataSinhVien(xml) {
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table =
+                `<tr>
+                            <th>MSSV</th>
+                            <th>Họ và tên</th>
+                            <th>Lớp</th>
+                            <th>Mã học phần</th>
+                            <th>Giới tính</th>
+                            <th>Email</th>
+                            <th>Mô tả</th>
+                        </tr>`;
+            var x = xmlDoc.getElementsByTagName("thongtin")
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("mssv")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("hoten")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("lop")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("mahp")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("gioitinh")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("mota")[0].childNodes[0].nodeValue + "</td></tr>";
+            }
+            document.getElementById("id").innerHTML = table
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <button type="button" class="btn-flat btn-hover" onclick="loadXMLDataSV()">
+            Sinh Viên
+        </button>
+    </center>
+    <br />
+    <table id="id"></table>
+</body>
+</html>

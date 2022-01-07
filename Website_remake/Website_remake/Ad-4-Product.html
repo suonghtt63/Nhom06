@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        * {
+            font-family: Quicksand
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: ThreeDLightShadow;
+        }
+
+        th {
+            background-color: black;
+            color: white
+        }
+
+        .none {
+            color: red;
+            font-weight: 400
+        }
+
+        .process {
+            color: yellow;
+            font-weight: 400
+        }
+
+        .done {
+            color: limegreen;
+            font-weight: 400
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+    <script type="text/javascript">
+        var str = "<sanphams><sanpham><STT>1</STT>" +
+            "<TenSP>Serum trắng da mờ thâm Alpha Arbutin 2% The Ordinary</TenSP>" +
+            "<TonKho>81 trong 5 biến thể</TonKho>" +
+            "<Loai>Kem dưỡng, serum</Loai>" +
+            "<NhaCungCap>The Ordinary</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>2</STT>" +
+            "<TenSP>Kem dưỡng dịu da Dear, Klairs Midnight Blue Calming Cream</TenSP>" +
+            "<TonKho>100 trong 5 biến thể</TonKho>" +
+            "<Loai>Kem dưỡng, serum</Loai>" +
+            "<NhaCungCap>Klairs</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>3</STT>" +
+            "<TenSP>Gel rửa mặt LaRoche Posay Effaclar Punfying Foaming Gel</TenSP>" +
+            "<TonKho>81 trong 5 biến thể</TonKho>" +
+            "<Loai>Sữa rửa mặt</Loai>" +
+            "<NhaCungCap>LaRoche Posay</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>4</STT>" +
+            "<TenSP>Mặt nạ đất sét Re:p Bio Fresh Mask With Real Herbs</TenSP>" +
+            "<TonKho>81 trong 5 biến thể</TonKho>" +
+            "<Loai>Mặt nạ</Loai>" +
+            "<NhaCungCap>Re:p</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>5</STT>" +
+            "<TenSP>Mặt nạ bí đao The Cocoon 30ml</TenSP>" +
+            "<TonKho>81 trong 5 biến thể</TonKho>" +
+            "<Loai>Mặt nạ</Loai>" +
+            "<NhaCungCap>The Cocoon</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>6</STT>" +
+            "<TenSP>Kem dưỡng cấp nước I'm From Vitamin Tree Water</TenSP>" +
+            "<TonKho>81 trong 5 biến thể</TonKho>" +
+            "<Loai>Kem dưỡng, serum</Loai>" +
+            "<NhaCungCap>I'm From</NhaCungCap></sanpham></sanphams > "
+            +
+            "<sanpham><STT>7</STT>" +
+            "<TenSP>Kem dưỡng B5 LaRoche-Posay</TenSP>" +
+            "<TonKho>100 trong 5 biến thể</TonKho>" +
+            "<Loai>Kem dưỡng, serum</Loai>" +
+            "<NhaCungCap>LaRoche Posay</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>8</STT>" +
+            "<TenSP>Serum cấp nước The Jungle Herbs</TenSP>" +
+            "<TonKho>100 trong 5 biến thể</TonKho>" +
+            "<Loai>Kem dưỡng, serum</Loai>" +
+            "<NhaCungCap>The Jungle Herbs</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>9</STT>" +
+            "<TenSP>Serum Niaciamide 3% làm mờ thâm, sáng da Lucenbase</TenSP>" +
+            "<TonKho>100 trong 5 biến thể</TonKho>" +
+            "<Loai>Kem dưỡng, serum</Loai>" +
+            "<NhaCungCap>Lucenbase</NhaCungCap></sanpham>"
+            +
+            "<sanpham><STT>10</STT>" +
+            "<TenSP>Serum Torriden chứa Hyaluroniacid 50ml</TenSP>" +
+            "<TonKho>100 trong 5 biến thể</TonKho>" +
+            "<Loai>Kem dưỡng, serum</Loai>" +
+            "<NhaCungCap>Torriden</NhaCungCap></sanpham>";
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(str, "text/xml");
+        function loadData() {
+            var x, i, table;
+            table = "<tr><th >STT</th><th >Tên sản phẩm</th><th>Tồn kho</th><th >Loại</th><th >Nhà cung cấp</th></tr>";
+            x = xmlDoc.getElementsByTagName("sanpham")
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("STT")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TenSP")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TonKho")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("Loai")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("NhaCungCap")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("myTB").innerHTML = table;
+            document.getElementById("myTB1").innerHTML = "";
+            document.getElementById("myTB2").innerHTML = "";
+        }
+
+        var str1 = "<nhomsanphams><nhomsanpham><STT>1</STT>" +
+            "<TenNhom>Kem dưỡng, serum </TenNhom>" +
+            "<DK_Nhom> Chăm sóc da mặt</DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>2</STT>" +
+            "<TenNhom>Mặt nạ</TenNhom>" +
+            "<DK_Nhom> Chăm sóc da mặt </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>3</STT>" +
+            "<TenNhom>Tẩy tế bào chết</TenNhom>" +
+            "<DK_Nhom> Chăm sóc da mặt </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>4</STT>" +
+            "<TenNhom>Sữa rửa mặt</TenNhom>" +
+            "<DK_Nhom> Chăm sóc da mặt </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>5</STT>" +
+            "<TenNhom>Dưỡng mi</TenNhom>" +
+            "<DK_Nhom> Chăm sóc vùng mắt </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>6</STT>" +
+            "<TenNhom>Tẩy trang mắt</TenNhom>" +
+            "<DK_Nhom> Chăm sóc vùng mắt </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>7</STT>" +
+            "<TenNhom>Kem dưỡng mắt</TenNhom>" +
+            "<DK_Nhom> Chăm sóc vùng mắt </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>8</STT>" +
+            "<TenNhom>Mặt nạ mắt</TenNhom>" +
+            "<DK_Nhom> Chăm sóc vùng mắt </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>9</STT>" +
+            "<TenNhom>Trang điểm mắt</TenNhom>" +
+            "<DK_Nhom> Trang điểm </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>10</STT>" +
+            "<TenNhom>Trang điểm môi</TenNhom>" +
+            "<DK_Nhom> Trang điểm </DK_Nhom></nhomsanpham>"
+            +
+            "<nhomsanpham><STT>11</STT>" +
+            "<TenNhom>Trang điểm mặt</TenNhom>" +
+            "<DK_Nhom> Trang điểm </DK_Nhom></nhomsanpham>";
+        var parser1 = new DOMParser();
+        var xmlDoc1 = parser1.parseFromString(str1, "text/xml");
+        function loadData1() {
+            var x, i, table;
+            table = "<tr><th >STT</th><th>Tên nhóm</th><th >Điều kiện nhóm</th></tr>";
+            x = xmlDoc1.getElementsByTagName("nhomsanpham")
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("STT")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TenNhom")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("DK_Nhom")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("myTB").innerHTML = "";
+            document.getElementById("myTB1").innerHTML = table;
+            document.getElementById("myTB2").innerHTML = "";
+        }
+
+        var str2 = "<tonkhos><tonkho><TenSP>Kem dưỡng mắt</TenSP>" +
+            "<MaSP>#000123</MaSP>" +
+            "<TonKho>10</TonKho>" +
+            "<CapNhat>20</CapNhat></tonkho>"
+            +
+            "<tonkhos><tonkho><TenSP>Serum trị mụn</TenSP>" +
+            "<MaSP>#100286</MaSP>" +
+            "<TonKho>5</TonKho>" +
+            "<CapNhat>30</CapNhat></tonkho>"
+            +
+            "<tonkhos><tonkho><TenSP>Son 3CE</TenSP>" +
+            "<MaSP>#018625</MaSP>" +
+            "<TonKho>0</TonKho>" +
+            "<CapNhat>35</CapNhat></tonkho>"
+            +
+            "<tonkhos><tonkho><TenSP>Mặt nạ</TenSP>" +
+            "<MaSP>#092771</MaSP>" +
+            "<TonKho>2</TonKho>" +
+            "<CapNhat>50</CapNhat></tonkho>"
+            +
+            "<tonkhos><tonkho><TenSP>Kem dưỡng</TenSP>" +
+            "<MaSP>#097721</MaSP>" +
+            "<TonKho>7</TonKho>" +
+            "<CapNhat>15</CapNhat></tonkho>"
+            +
+            "<tonkhos><tonkho><TenSP>Sữa rửa mặt</TenSP>" +
+            "<MaSP>#001152</MaSP>" +
+            "<TonKho>3</TonKho>" +
+            "<CapNhat>22</CapNhat></tonkho></tonkhos>";
+        var parser2 = new DOMParser();
+        var xmlDoc2 = parser2.parseFromString(str2, "text/xml");
+        function loadData2() {
+            var x, i, table;
+            table = "<tr><th>Sản phẩm</th><th >Mã sản phẩm</th><th >Tồn kho</th><th >Cập nhật tồn kho</th></tr>";
+            x = xmlDoc2.getElementsByTagName("tonkho")
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("TenSP")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("MaSP")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TonKho")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("CapNhat")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("myTB").innerHTML = "";
+            document.getElementById("myTB1").innerHTML = "";
+            document.getElementById("myTB2").innerHTML = table;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <a href=""><input class="btn-flat btn-hover" type="button" value="LÀM MỚI" /></a>
+        <input class="btn-flat btn-hover" type="button" value="TẤT CẢ SẢN PHẨM" onclick="loadData()" />
+        <input class="btn-flat btn-hover" type="button" value="NHÓM SẢN PHẨM" onclick="loadData1()" />
+        <input class="btn-flat btn-hover" type="button" value="KHO SẢN PHẨM" onclick="loadData2()" />
+    </center>
+    <br />
+    <table id="myTB">
+    </table>
+    <table id="myTB1">
+    </table>
+    <table id="myTB2">
+    </table>
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CATALOG>
+
+  <ORDER>
+    <MADH>#100030</MADH>
+    <TENSP>Mặt nạ ngủ 10 miếng</TENSP>
+    <TGDH>30-12-2021 08:05:41</TGDH>
+    <XACNHAN>● Chờ xác nhận</XACNHAN>
+    <NGUOIXN>--</NGUOIXN>
+    <TGXN>--</TGXN>
+    <TTTT>● Đã thanh toán</TTTT>
+    <TTGH>● Chưa giao hàng</TTGH>
+    <TONG>165.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </ORDER>
+
+  <ORDER>
+    <MADH>#100029</MADH>
+    <TENSP>Son BBia màu #12</TENSP>
+    <TGDH>29-12-2021 22:05:20</TGDH>
+    <XACNHAN>● Chờ xác nhận</XACNHAN>
+    <NGUOIXN>--</NGUOIXN>
+    <TGXN>--</TGXN>
+    <TTTT>● Đã thanh toán</TTTT>
+    <TTGH>● Chưa giao hàng</TTGH>
+    <TONG>235.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </ORDER>
+  
+  <ORDER>
+    <MADH>#100028</MADH>
+    <TENSP>Combo 3 thỏi son 3CE màu nude</TENSP>
+    <TGDH>28-12-2021 20:45:46</TGDH>
+    <XACNHAN>● Đã xác nhận</XACNHAN>
+    <NGUOIXN>Hạnh Trang</NGUOIXN>
+    <TGXN>29-12-2021 07:30:13</TGXN>
+    <TTTT>● Đã thanh toán</TTTT>
+    <TTGH>● Đã giao hàng</TTGH>
+    <TONG>704.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </ORDER>
+  
+  <ORDER>
+    <MADH>#100027</MADH>
+    <TENSP>Bộ cọ trang điểm inisfree</TENSP>
+    <TGDH>27-12-2021 18:13:05</TGDH>
+    <XACNHAN>● Đã xác nhận</XACNHAN>
+    <NGUOIXN>Diễm Châu</NGUOIXN>
+    <TGXN>28-12-2021 06:12:35</TGXN>
+    <TTTT>● Đã thanh toán</TTTT>
+    <TTGH>● Đã giao hàng</TTGH>
+    <TONG>109.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </ORDER>
+  
+  <ORDER>
+    <MADH>#100026</MADH>
+    <TENSP>Serum trị mụn Vichy</TENSP>
+    <TGDH>27-12-2021 14:12:45</TGDH>
+    <XACNHAN>● Đã xác nhận</XACNHAN>
+    <NGUOIXN>Như Thảo</NGUOIXN>
+    <TGXN>27-12-2021 15:12:24</TGXN>
+    <TTTT>● Đã thanh toán</TTTT>
+    <TTGH>● Đã giao hàng</TTGH>
+    <TONG>109.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </ORDER>
+  
+  <ORDER>
+    <MADH>#100028</MADH>
+    <TENSP>Combo 3 thỏi son 3CE màu nude</TENSP>
+    <TGDH>28-12-2021 20:45:46</TGDH>
+    <XACNHAN>● Đã xác nhận</XACNHAN>
+    <NGUOIXN>Hạnh Trang</NGUOIXN>
+    <TGXN>29-12-2021 07:30:13</TGXN>
+    <TTTT>● Đã thanh toán</TTTT>
+    <TTGH>● Đã giao hàng</TTGH>
+    <TONG>704.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </ORDER>
+    
+
+</CATALOG>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CATALOG>
+  <DELIVERY>
+    <MAVC>11030246081</MAVC>
+    <MADH>#100020</MADH>
+    <KH>Nguyễn Văn Nam</KH>
+    <NVC>Ninja Van</NVC>
+    <NGAYTAO>30-12-2021 01:05:41</NGAYTAO>
+    <TTDH>● Chờ lấy hàng</TTDH>
+    <COD>Có</COD>
+    <TIENCOD>235.000đ</TIENCOD>
+    <TONG>235.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </DELIVERY>
+
+  <DELIVERY>
+    <MAVC>1030246059</MAVC>
+    <MADH>#100019</MADH>
+    <KH>Bùi Đức Anh</KH>
+    <NVC>Ninja Van</NVC>
+    <NGAYTAO>25-12-2021 10:45:55</NGAYTAO>
+    <TTDH>● Đang giao</TTDH>
+    <COD>Có</COD>
+    <TIENCOD>435.000đ</TIENCOD>
+    <TONG>435.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </DELIVERY>
+
+  <DELIVERY>
+    <MAVC>1029974649</MAVC>
+    <MADH>#100018</MADH>
+    <KH>Lê Anh thư</KH>
+    <NVC>GHKT</NVC>
+    <NGAYTAO>25-12-2021 10:45:20</NGAYTAO>
+    <TTDH>● Đã giao</TTDH>
+    <COD>Không</COD>
+    <TIENCOD>0đ</TIENCOD>
+    <TONG>124.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </DELIVERY>
+
+  <DELIVERY>
+    <MAVC>1029974684</MAVC>
+    <MADH>#100017</MADH>
+    <KH>Đỗ Kim Anh</KH>
+    <NVC>GHTK</NVC>
+    <NGAYTAO>19-12-2021 06:12:02</NGAYTAO>
+    <TTDH>● Đã giao</TTDH>
+    <COD>Có</COD>
+    <TIENCOD>267.500đ</TIENCOD>
+    <TONG>267.500đ</TONG>
+    <GHICHU>--</GHICHU>
+  </DELIVERY>
+
+  <DELIVERY>
+    <MAVC>1029974701</MAVC>
+    <MADH>#100016</MADH>
+    <KH>Nguyễn Thu Hương</KH>
+    <NVC>Ninja Van</NVC>
+    <NGAYTAO>17-12-2021 09:51:51</NGAYTAO>
+    <TTDH>● Đã giao</TTDH>
+    <COD>Có</COD>
+    <TIENCOD>560.000đ</TIENCOD>
+    <TONG>560.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </DELIVERY>
+
+  <DELIVERY>
+    <MAVC>1029509549</MAVC>
+    <MADH>#100015</MADH>
+    <KH>Phạm Đình Nguyên</KH>
+    <NVC>GHKT</NVC>
+    <NGAYTAO>12-12-2021 19:04:36</NGAYTAO>
+    <TTDH>● Đã giao</TTDH>
+    <COD>Không</COD>
+    <TIENCOD>0đ</TIENCOD>
+    <TONG>105.000đ</TONG>
+    <GHICHU>--</GHICHU>
+  </DELIVERY>
+</CATALOG>

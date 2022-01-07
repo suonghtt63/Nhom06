@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sinhvien>
+  <thongtin id ="thao">
+    <mssv>K194111569</mssv>
+    <hoten>Hồ Thị Như Thảo</hoten>
+    <lop>K19411</lop>
+    <mahp>211MI2604</mahp>
+    <gioitinh>Nữ</gioitinh>
+    <email>thaohtn19411@st.uel.edu.vn</email>
+    <mota>I like code web</mota>
+  </thongtin>
+  <thongtin id ="chau">
+    <mssv>K194111524</mssv>
+    <hoten>Trần Thị Diễm Châu</hoten>
+    <lop>K19411</lop>
+    <mahp>211MI2604</mahp>
+    <gioitinh>Nữ</gioitinh>
+    <email>chauttd9411@st.uel.edu.vn</email>
+    <mota>I like code web</mota>
+  </thongtin>
+  <thongtin id ="suong">
+    <mssv>K194111564</mssv>
+    <hoten>Hoàng Thị Thu Sương</hoten>
+    <lop>K19411</lop>
+    <mahp>211MI2604</mahp>
+    <gioitinh>Nữ</gioitinh>
+    <email>suonghtt19411@st.uel.edu.vn</email>
+    <mota>I like code web</mota>
+  </thongtin>
+  <thongtin id ="tham">
+    <mssv>K194111574</mssv>
+    <hoten>Lê Nguyễn Thu Thắm</hoten>
+    <lop>K19411</lop>
+    <mahp>211MI2604</mahp>
+    <gioitinh>Nữ</gioitinh>
+    <email>thamlnt19411@st.uel.edu.vn</email>
+    <mota>I like code web</mota>
+  </thongtin>
+  <thongtin id ="trang">
+    <mssv>K194111583</mssv>
+    <hoten>Trần Thị Hạnh Trang</hoten>
+    <lop>K19411</lop>
+    <mahp>211MI2604</mahp>
+    <gioitinh>Nữ</gioitinh>
+    <email>trangtth19411@st.uel.edu.vn</email>
+    <mota>I like code web</mota>
+  </thongtin>
+</sinhvien>

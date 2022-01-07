@@ -1,0 +1,192 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Báo cáo doanh thu</title>
+    <!--icon logo trên tiêu đề-->
+    <link rel="shortcut icon" href="logo/nền trong suốt.png" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        * {
+            font-family: Quicksand
+        }
+        #container {
+            height: 400px;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 320px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #ebebeb;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+
+</head>
+<body>
+
+
+    <table width="100%" border="0">
+        <tr>
+            <td colspan="2">
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+                <script src="https://code.highcharts.com/highcharts-more.js"></script>
+                <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description" align="center">
+                        Biểu đồ doanh thu thuần shop mỹ phẩm Wasabi trong năm 2021
+                    </p>
+
+                    <button class="btn-flat btn-hover" id="plain">Biểu đồ cột</button>
+                    <button class="btn-flat btn-hover" id="inverted">Biểu đồ ngang</button>
+                    <button class="btn-flat btn-hover" id="polar">Biểu đồ tròn</button>
+                </figure>
+                <script type="text/javascript">
+                    const chart = Highcharts.chart('container', {
+                        title: {
+                            text: 'BÁO CÁO DOANH THU THUẦN NĂM 2021'
+                        },
+                        subtitle: {
+                            text: 'Biểu đồ cột'
+                        },
+                        xAxis: {
+                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                        },
+                        series: [{
+                            type: 'column',
+                            colorByPoint: true,
+                            data: [50, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 200],
+                            showInLegend: false
+                        }]
+                    });
+
+                    document.getElementById('plain').addEventListener('click', () => {
+                        chart.update({
+                            chart: {
+                                inverted: false,
+                                polar: false
+                            },
+                            subtitle: {
+                                text: 'Biểu đồ cột'
+                            }
+                        });
+                    });
+
+                    document.getElementById('inverted').addEventListener('click', () => {
+                        chart.update({
+                            chart: {
+                                inverted: true,
+                                polar: false
+                            },
+                            subtitle: {
+                                text: 'Biểu đồ ngang'
+                            }
+                        });
+                    });
+
+                    document.getElementById('polar').addEventListener('click', () => {
+                        chart.update({
+                            chart: {
+                                inverted: false,
+                                polar: true
+                            },
+                            subtitle: {
+                                text: 'Biểu đồ tròn'
+                            }
+                        });
+                    });
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><hr/></td>
+        </tr>
+        <tr align="center">
+            <td valign="top" style="border-right: 1px dotted">
+                <h3><b>SỐ LƯỢNG ĐƠN HÀNG</b></h3>
+                <br />
+                <center>150 đơn hàng</center>
+                <br />
+                <div align="center"><img src="icons/trophy-award-pngrepo-com.png" width="60" /></div>
+                
+            </td>
+            <td>
+                <h3><b>SẢN PHẨM BÁN CHẠY</b></h3>
+                <ul align="left">
+                    <li>Kem dưỡng, serum</li>
+                    <li>Tẩy tế bào chết</li>
+                    <li>Son môi</li>
+                    <li>Phấn mắt</li>
+                    <li>Combo trang điểm</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

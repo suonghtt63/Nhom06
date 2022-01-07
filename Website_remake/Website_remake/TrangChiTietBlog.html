@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài viết Blog</title>
+    <link rel="shortcut icon" href="logo/nền trong suốt.png" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <style>
+        * {
+            font-family: Quicksand
+        }
+
+        hr {
+            text-align: center;
+            margin-left: 30px;
+            margin-right: 30px;
+            display: block;
+            min-height: 1px;
+            box-sizing: border-box;
+            border-style: inset;
+            color: #893939;
+            
+        }
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 10px
+        }
+
+        .tacgia-ngaydang {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+            .tacgia-ngaydang img {
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+                margin-bottom: 5px;
+            }
+
+        .image-blog {
+            text-align: center;
+            position: center;
+            margin: 10px
+        }
+
+        .content-blog {
+            text-align: justify;
+            margin: 30px;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .danhgia-blog i:hover {
+            color: var(--red)
+        }
+
+        .danhgia-blog {
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 30px;
+            padding: 10px
+        }
+
+        .line1-blog .blog-details img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .blog-details {
+            width: 25%;
+            background-color: white;
+            border-radius: 10px;
+            float: left;
+            margin: auto;
+            margin-top: 30px;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        .line1-blog {
+            display: flex;
+        }
+
+        .blog-details .blog-details h3 {
+            margin-left: 10px;
+            margin-right: 10px
+        }
+
+        .btn-xemthem {
+            display: inline-block;
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+            padding: 10px 35px;
+            margin-top: 10px;
+            font-size: 16px;
+            outline: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: white;
+                color: var(--red);
+            }
+
+
+        .product-card {
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 30px
+        }
+
+            .product-card:hover {
+                background-color: black;
+                color: white
+            }
+
+        .product-card-img {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+            .product-card-img img {
+                width: 100%;
+                max-height: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+
+                .product-card-img img:nth-child(2) {
+                    display: none;
+                }
+
+        .product-card:hover .product-card-img img:nth-child(1) {
+            display: none;
+        }
+
+        .product-card:hover .product-card-img img:nth-child(2) {
+            display: block;
+        }
+
+        .product-card-info {
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card-name {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-card-price {
+            font-size: 15px;
+        }
+
+            .product-card-price .curr-price {
+                margin-left: 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--red);
+            }
+
+        .product-btn {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-card:hover .product-btn {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .product-btn > * ~ * {
+            margin-left: 5px;
+        }
+
+
+        .product-related {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-related {
+            width: 450px;
+            cursor: pointer;
+            margin: 0 50px 50px 50px;
+            grid-auto-rows: auto;
+            background-color: white;
+            border-radius: 0px 0px 20px 20px;
+            box-shadow: var(--second-bg-color) 0px 7px 29px 0;
+            transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .product-img-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-img-related:hover {
+            background-color: black;
+            color: white
+        }
+
+        .product-name {
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin: 10px 10px 10px 10px;
+        }
+
+        .product-price {
+            font-size: 14px;
+            text-align: justify;
+            font-weight: 300;
+            text-transform: none;
+            margin: 0 10px 20px 10px;
+        }
+
+        .news {
+            margin-bottom: 30px
+        }
+
+        .breadcumb {
+            font-weight: bold;
+            padding: 10px;
+            font-size: 14px
+        }
+
+            .breadcumb a {
+                text-transform: capitalize;
+            }
+
+                .breadcumb a:hover {
+                    color: var(--red);
+                }
+
+            .breadcumb span {
+                margin: 0 10px;
+            }
+
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <!-- mobile menu -->
+        <div class="mobile-menu bg-main">
+            <a href="index.html"><img class="mb-logo" src="logo/5-ngang.png" height="50" /></a>
+            <span class="mb-menu-toggle" id="mb-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </span>
+        </div>
+        <!-- end mobile menu -->
+        <!-- main header -->
+        <div class="header-wrapper" id="header-wrapper">
+            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+                <i class='bx bx-x'></i>
+            </span>
+            <!-- top header -->
+            <div class="bg-second">
+                <div class="top-header container">
+                    <ul class="devided">
+                        <li>
+                            <a href="#">Hotline: 840123456789</a>
+                        </li>
+                        <li>
+                            <a href="#"> wasabishop@mail.com</a>
+                        </li>
+                    </ul>
+                    <ul class="devided">
+                        <li class="dropdown">
+                            <a href="">Ban quản trị</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="AdminDangNhap.html">Đăng nhập </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end top header -->
+            <!-- mid header -->
+            <div class="bg-main">
+                <div class="mid-header container">
+                    <a href="index.html"><img class="logo" src="logo/5-ngang.png" height="55" /></a>
+                    <div class="search">
+                        <input type="text" placeholder="Nhập nội dung tìm kiếm...">
+                        <i class='bx bx-search-alt'></i>
+                    </div>
+                    <ul class="user-menu">
+                        <li class="dropdown">
+                            <a href="">Tài khoản</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="DangNhap.html">Đăng nhập </a></li>
+                                <li><a href="DangKy.html">Đăng ký </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-notice">
+                            <a href=""><i class='bx bx-bell'></i></a>
+                            <ul class="dropdown-content-notice">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bạn nhận được 2 voucher giảm giá trong tháng này! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Sản phẩm ở giỏ hàng của bạn đang được giảm giá, mua ngay! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Năm hết tết đến rồi, cùng Wasabi chốt đơn cuối năm nào! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được xác nhận thanh toán COD! </a></li>
+                                <li style=" padding: 20px"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bag">
+                            <a href="GioHang.html"><i class='bx bx-shopping-bag'></i></a>
+                            <ul class="dropdown-content-bag">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bộ mặt nạ đất sét cấp ẩm làm sáng da 10 miếng</a><img src="images/1.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Phấn má hồng 3 trong 1 makup tone hot girl </a><img src="images/4.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 0px dotted"><a href="GioHang.html"><input type="button" class="btn-bag btn-bag-hover" value="Đi đến giỏ hàng" /></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end mid header -->
+            <!-- bottom header -->
+            <div class="bg-second">
+                <div class="bottom-header container">
+                    <ul class="main-menu">
+                        <li><a href="index.html">trang chủ</a></li>
+                        <li><a href="TrangGioiThieu.html">giới thiệu</a></li>
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="" onclick="location.assign('TrangSanPham.html')">
+                                sản phẩm
+                                <i class='bx bxs-chevron-down'></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="1-TrangDiem.html">Trang điểm</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Trang điểm mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm môi</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng, serum</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="3-ChamSocMat.html">Chăm sóc mắt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng da</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ mắt </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="4-Combo.html">Combo</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Combo trang điểm</a></li>
+                                                <li><a href="TrangSanPham.html">Combo da mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Combo cho mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <li><a href="TrangKhuyenMai.html">khuyến mãi</a></li>
+                        <li><a href="TrangBlog1.html">blog</a></li>
+                        <li><a href="TrangLienHe.html">liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end bottom header -->
+        </div>
+        <!-- end main header -->
+    </header>
+    <!-- end header -->
+
+    <!--chi tiết blog-->
+
+    <div class="bg-main">
+        <!-- đường dẫn -->
+        <div class="breadcumb" style="border-bottom: 0.5px dotted ">
+            <a href="">Trang chủ</a>
+            <span><img src="icons/right.png" width="10" height="10" /></span>
+            <a href="">Blog</a>
+            <span><img src="icons/right.png" width="10" height="10" /></span>
+            <a href="">Bài viết blog</a>
+        </div>
+        <!--Hết breadcumb-->
+        <h1>Liệu trình thư giãn cơ thể cho dân văn phòng cùng Okame</h1>
+        <div class="tacgia-ngaydang">
+            <i class="bx bx-user"></i>
+            Tác giả: Evo Themes
+            <img src="images/clock.png" style="margin-left:20px" />
+            Ngày đăng: 08.12.2021
+        </div>
+        <div class="image-blog" style="margin-top:50px">
+            <img src="images/blog11.jpg" />
+        </div>
+        <div class="content-blog">
+            <p>
+                Sữa tắm OKAME Skin Replenishing Body Shower
+            </p>
+            <br />
+            <p>
+                Nếu bạn là tín đồ trung thành với các sản phẩm sữa tắm có cảm vị tự nhiên thảo mộc, đây chính là sản phẩm dành cho bạn. Một chút thanh mát, trầm mặc và thi vị của hương hoa húng quế và oải hương, sữa tắm OKAME thanh lọc toàn bộ mùi cơ thể của bạn một cách nhanh chóng. Sản phẩm được dùng tốt nhất khi bạn có thói quen tắm bồn. Louis tin với cảm giác thư thái ngâm bồn, cùng hương thơm thanh khiết của sản phẩm sẽ giúp bạn giải tỏa căng thẳng nhanh chóng.
+            </p>
+        </div>
+        <div class="image-blog">
+            <img src="images/blog12.jpg" />
+        </div>
+        <div class="content-blog">
+            <p>
+                Đối với hiệu quả làm sạch, Louis sẵn sàng cho em ấy điểm 10 trọn vẹn. Kết cấu khá đặc, khi hòa với nước và cho lên da, chất sữa sẽ hòa quyện và cuốn trôi đi toàn bộ bụi bẩn. Sau tầm 2 tuần sử dụng, làn da của Louis đã có sự cải thiện rõ rệt: Mịn hơn, sáng & đầy sức sống hơn. Dù vậy, vì sản phẩm có nhiều thành phần dưỡng, chắc chắn bạn sẽ không thể đòi hỏi khả năng "sạch bong kin kít" như các dòng sữa tắm tẩy rửa tiệt trùng khác. Việc rửa trôi sữa tắm cũng sẽ ngốn kha khá thời gian đấy!
+            </p>
+            <br />
+            <p>Đánh giá: 9.5/10 (Sản phẩm này dành cho các bạn kỹ tính, chịu bỏ thời gian làm sạch cơ thể)</p>
+        </div>
+        <br />
+        <hr />
+        <div class="danhgia-blog">
+            <i class='bx bxs-heart'></i>
+            Yêu thích
+            <i class='bx bxs-share'></i>
+            Chia sẻ
+        </div>
+        <hr />
+        <h1>Bài viết tương tự</h1>
+        <div class="box">
+            <!--bài viết-->
+            <div class="row" style="padding: 10px; margin: 10px">
+                <!--bài viết 1-->
+                <div class="col-4 col-md-4 col-sm-12 news">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="./images/blog1.jpg" alt="">
+                            <img src="./images/blog1.jpg" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-xemthem btn-hover" onclick="location.assign('TrangChiTietBlog.html')">Xem thêm</button>
+                            </div>
+                        </div>
+                        <p class="product-name"> LIỆU TRÌNH THƯ GIÃN CƠ THỂ CHO DÂN VĂN PHÒNG CÙNG OKAME</p>
+                        <!--Giá-->
+                        <div class="product-price" style="margin-bottom: 10px">
+                            <p class="product-price-origin">
+                                Hãy cùng Louis khám phá nhé! Sữa tắm OKAME Skin Replenishing Body Shower...
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <!--bài viết 2-->
+                <div class="col-4 col-md-4 col-sm-12 news">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="./images/blog2.jpg" alt="">
+                            <img src="./images/blog2.jpg" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-xemthem btn-hover" onclick="location.assign('TrangChiTietBlog.html')">Xem thêm</button>
+                            </div>
+                        </div>
+                        <p class="product-name">- HUXLEY - <br /> HIỆN TƯỢNG MỚI CỦA GIỚI MỸ PHẨM</p>
+                        <!--Giá-->
+                        <div class="product-price">
+                            <p class="product-price-origin">
+                                Hãy cùng Louis khám phá nhé! Sữa tắm OKAME Skin Replenishing Body Shower...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--bài viết 3-->
+                <div class="col-4 col-md-4 col-sm-12 news">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="./images/blog1.jpg" alt="">
+                            <img src="./images/blog1.jpg" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-xemthem btn-hover" onclick="location.assign('TrangChiTietBlog.html')">Xem thêm</button>
+                            </div>
+                        </div>
+                        <p class="product-name"> LIỆU TRÌNH THƯ GIÃN CƠ THỂ CHO DÂN VĂN PHÒNG CÙNG OKAME</p>
+                        <!--Giá-->
+                        <div class="product-price">
+                            <p class="product-price-origin">
+                                Hãy cùng Louis khám phá nhé! Sữa tắm OKAME Skin Replenishing Body Shower...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-second">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">LIÊN HỆ</h3>
+
+                    <ul class="menu">
+
+                        <li>
+                            <a href="#"><i class='bx bx-current-location'>&nbsp;</i>Hồ Chí Minh, Vietnam</a>
+                        </li>
+                        <li><a href="#"><i class='bx bx-phone-call'>&nbsp;</i>0123456789</a></li>
+                        <li><a href="#"><i class='bx bx-check'>&nbsp;</i>(miễn phí 24/7)</a></li>
+                        <li><a href="#"><i class='bx bx-mail-send'>&nbsp;</i>wasabi@gmail.com</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Sản phẩm</h3>
+                    <ul class="menu">
+                        <li><a href="4-Combo.html">Commbo</a></li>
+                        <li><a href="1-TrangDiem.html">Trang điểm</a></li>
+                        <li><a href="3-ChamSocMat.html">Chăm sóc mắt</a></li>
+                        <li><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Dịch vụ</h3>
+                    <ul class="menu">
+                        <li><a href="TrangBlog1.html">Blog</a></li>
+                        <li><a href="TrangLienHe.html">Liên hệ</a></li>
+                        <li><a href="TrangKhuyenMai.html">Khuyến mãi</a></li>
+                        <li><a href="TrangGioiThieu.html">Các chính sách</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-3 col-md-12 col-sm-12">
+                    <div class="contact">
+                        <h3 class="contact-header">
+                            <img src="logo/nền trong suốt.png" height="100" style="opacity: 0.9" />
+                        </h3>
+                        <p align="center" style="margin-bottom: 10px"><b>Social Media</b></p>
+                        <ul class="contact-socials">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/" target="_blank">
+                                    <i class='bx bxl-facebook-circle'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/" target="_blank">
+                                    <i class='bx bxl-instagram-alt'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pinterest" href="https://www.pinterest.com/" target="_blank">
+                                    <i class='bx bxl-pinterest'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://twitter.com/ " target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-12 col-sm-12">
+                    <p align="center"><b>Đăng kí nhận tin để nhận ưu đãi hấp dẫn hơn!</b></p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Nhập email tại đây...">
+                        <button onclick="alert('Đăng kí nhận tin thành công!')">Đăng kí</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <a href="#">&copy; Bản quyền thuộc về WASABI Team</a>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- app js -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
+
+

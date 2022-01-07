@@ -1,0 +1,141 @@
+﻿<body>
+    <form action="ServerForm6.html" method="get">
+        <table>
+            <tr>
+                <th align="center">Part Number</th>
+                <th align="center">Description</th>
+                <th align="center">Price</th>
+                <th align="center">Qty</th>
+                <th align="center">Item table</th>
+            </tr>
+            <tr>
+                <td>C112</td>
+                <td>Chuột Quang</td>
+                <td>19.95$</td>
+                <td><input type="text" name="QtyC" size="10" /></td>
+                <td><input type="text" name="ItemC" size="10" /></td>
+            </tr>
+            <tr>
+                <td>B124</td>
+                <td>Bàn Phím</td>
+                <td>29.95$</td>
+                <td><input type="text" name="QtyB" size="10" /></td>
+                <td><input type="text" name="ItemB" size="10" /></td>
+            </tr>
+            <tr>
+                <td>U125</td>
+                <td>USB KinhMax</td>
+                <td>39.95$</td>
+                <td><input type="text" name="QtyU" size="10" /></td>
+                <td><input type="text" name="ItemU" size="10" /></td>
+            </tr>
+            <tr>
+                <td colspan="5"><hr /> </td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td align="right" size="10">Total</td>
+                <td><input type="text" name="total" size="10" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td align="center"><input type="submit" onclick="" value="TinhTong" size="10" /></td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            document.getElementById("QtyC").innerHTML = QtyC;
+            document.getElementById("QtyB").innerHTML = QtyB;
+            document.getElementById("QtyU").innerHTML = QtyU;
+            document.getElementById("ItemC").innerHTML = ItemC;
+            document.getElementById("ItemB").innerHTML = ItemB;
+            document.getElementById("ItemU").innerHTML = ItemU;
+            document.getElementById("total").innerHTML = total;
+        </script>
+    </form>
+</body>
+serverform.html
+<script type="text/javascript">
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var QtyC = unescape(getUrlVars()["QtyC"]);
+
+        var QtyB = unescape(getUrlVars()["QtyB"]);
+        var QtyU = unescape(getUrlVars()["QtyU"]);
+        var ItemC = unescape(getUrlVars()["ItemC"]);
+
+        var ItemB = unescape(getUrlVars()["ItemB"]);
+        var ItemU = unescape(getUrlVars()["ItemU"]);
+        var total = unescape(getUrlVars()["total"]);
+
+        function TinhTienTungMon(dongia, soluong) {
+            return dongia * soluong;
+        }
+
+        function BillTotal() {
+            var PriceC = TinhTienTungMon(19.95, QtyC * 1);
+            var PriceB = TinhTienTungMon(29.95, QtyB * 1);
+            var PriceU = TinhTienTungMon(39.95, QtyU * 1);
+            return total = Math.round((PriceC + PriceB + PriceU) * 100) / 100;
+        }
+        function show() {
+            document.getElementById("QtyC").innerHTML = QtyC;
+            document.getElementById("QtyB").innerHTML = QtyB;
+            document.getElementById("QtyU").innerHTML = QtyU;
+            document.getElementById("ItemC").innerHTML = ItemC;
+            document.getElementById("ItemB").innerHTML = ItemB;
+            document.getElementById("ItemU").innerHTML = ItemU;
+            var total = BillTotal();
+            document.getElementById("total").innerHTML = total;
+        }
+</script>
+</head>
+<body>
+    <h1>CHI TIET HOA DON</h1>
+    <form action="ServerForm6.html" method="get">
+        <table border="0">
+            <tr>
+                <th>Part Number</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Item table</th>
+            </tr>
+            <tr>
+                <td>C112</td>
+                <td>Chuột Quang</td>
+                <td>19.95$</td>
+                <td id="QtyC" align="center"> </td>
+                <td id="ItemC" align="center"></td>
+            </tr>
+            <tr>
+                <td>B124</td>
+                <td>Bàn Phím</td>
+                <td>29.95$</td>
+                <td id="QtyB" align="center"></td>
+                <td id="ItemB" align="center"></td>
+            </tr>
+            <tr>
+                <td>U125</td>
+                <td>USB KinhMax</td>
+                <td>39.95$</td>
+                <td id="QtyU" align="center"></td>
+                <td id="ItemU" align="center"></td>
+            </tr>
+            <tr>
+                <td colspan="5"><hr /> </td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td align="center">Total</td>
+                <td id="total" align="center"></td>
+            </tr>
+        </table>
+        <script type="text/javascript">show()</script>
+    </form>
+</body>

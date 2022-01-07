@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Đăng Nhập</title>
+    <!--icon logo trên tiêu đề-->
+    <link rel="shortcut icon" href="logo/nền trong suốt.png" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style type="text/css">
+        /*button process*/
+        .btn-process {
+            display: inline-block;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            color: black;
+            margin-left: 20px;
+            padding: 15px 35px;
+            font-size: 16px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            line-height: 15px;
+        }
+
+        .btn-process-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-process-hover:hover {
+                background-color: white;
+                color: #C18989;
+            }
+    </style>
+</head>
+<body>
+
+
+    <!--Content-->
+    <div class="col-12 col-md-12 col-sm-12" style="background-color: #eab9b9; height: fit-content; height: 700px" align="center">
+        <h1 class="col-12  col-md-12 col-sm-12" align="center" style="padding-top: 20px">Ban quản trị</h1>
+        <h4 class="col-12  col-md-12 col-sm-12" align="center" style="padding-bottom: 20px">Đăng nhập để vào trang quản trị</h4>
+        <hr />
+        <br />
+
+        <div align="center">
+            <form action="AdminQuanLy.html" name="myForm" onsubmit="return validateForm()">
+                <div class="col-8 col-md-12" style="margin-bottom: 40px">
+                    <label>
+                        <label>Địa chỉ Email:*</label>
+                        <input id="email" style="width: 75%; height: 50px; border-radius: 25px; font-size: 20px; border: none; padding-left: 15px" type="email" , placeholder="Nhập email tại đây" />
+                    </label>
+                </div>
+                <div class="col-8 col-md-12" style="margin-bottom: 40px">
+                    <label>
+                        <label>Mật khẩu:* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input id="matKhau" style="width: 75%; height: 50px; border-radius: 25px; font-size: 20px; border: none; padding-left: 15px" type="password" , placeholder="Nhập mật khẩu tại đây" />
+                    </label>
+                </div>
+                <div class="col-12 col-md-12">
+                    <input type="checkbox" onclick="ShowPassword()" /> Hiển thị mật khẩu
+                </div>
+                <div class="col-12 col-md-12">
+                    <input type="submit" value="Đăng nhập" class="btn-process btn-process-hover"/>
+                </div>
+            </form>
+        </div>
+        <br />
+        <br />
+    </div>
+    <script type="text/javascript">
+        function ShowPassword() {
+            var x = document.getElementById("matKhau");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+        function validateForm() {
+            //Email phải được điền chính xác
+            var email = document.forms["myForm"]["email"].value;
+            var aCong = email.indexOf("@");
+            var dauCham = email.lastIndexOf(".");
+            if (email == "") {
+                alert("Email không được để trống");
+                return false;
+            }
+            else if ((aCong < 1) || (dauCham < aCong + 2) || (dauCham + 2 > email.length)) {
+                alert("Email bạn điền không chính xác");
+                return false;
+            }
+            //Mật khẩu phải điền
+            var pass = document.forms["myForm"]["matKhau"].value;
+            if (pass == "") {
+                alert("Mật khẩu không được để trống");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

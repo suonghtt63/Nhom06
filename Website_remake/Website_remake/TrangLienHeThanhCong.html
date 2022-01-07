@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ</title>
+    <!--favicon-->
+    <link rel="shortcut icon" href="logo/nền trong suốt.png" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style type="text/css">
+        /*button process*/
+        .btn-process {
+            display: inline-block;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            color: black;
+            margin-left: 20px;
+            padding: 15px 35px;
+            font-size: 16px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            line-height: 15px;
+        }
+
+        .btn-process-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-process-hover:hover {
+                background-color: white;
+                color: #C18989;
+            }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <!-- mobile menu -->
+        <div class="mobile-menu bg-main">
+            <a href="index.html"><img class="mb-logo" src="logo/5-ngang.png" height="50" /></a>
+            <span class="mb-menu-toggle" id="mb-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </span>
+        </div>
+        <!-- end mobile menu -->
+        <!-- main header -->
+        <div class="header-wrapper" id="header-wrapper">
+            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+                <i class='bx bx-x'></i>
+            </span>
+            <!-- top header -->
+            <div class="bg-second">
+                <div class="top-header container">
+                    <ul class="devided">
+                        <li>
+                            <a href="#">Hotline: 840123456789</a>
+                        </li>
+                        <li>
+                            <a href="#"> wasabishop@mail.com</a>
+                        </li>
+                    </ul>
+                    <ul class="devided">
+                        <li class="dropdown">
+                            <a href="">Ban quản trị</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="AdminDangNhap.html">Đăng nhập </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end top header -->
+            <!-- mid header -->
+            <div class="bg-main">
+                <div class="mid-header container">
+                    <a href="index.html"><img class="logo" src="logo/5-ngang.png" height="55" /></a>
+                    <div class="search">
+                        <input type="text" placeholder="Nhập nội dung tìm kiếm...">
+                        <i class='bx bx-search-alt'></i>
+                    </div>
+                    <ul class="user-menu">
+                        <li class="dropdown">
+                            <a href="">Tài khoản</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="DangNhap.html">Đăng nhập </a></li>
+                                <li><a href="DangKy.html">Đăng ký </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-notice">
+                            <a href=""><i class='bx bx-bell'></i></a>
+                            <ul class="dropdown-content-notice">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bạn nhận được 2 voucher giảm giá trong tháng này! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Sản phẩm ở giỏ hàng của bạn đang được giảm giá, mua ngay! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Năm hết tết đến rồi, cùng Wasabi chốt đơn cuối năm nào! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được xác nhận thanh toán COD! </a></li>
+                                <li style=" padding: 20px"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bag">
+                            <a href="GioHang.html"><i class='bx bx-shopping-bag'></i></a>
+                            <ul class="dropdown-content-bag">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bộ mặt nạ đất sét cấp ẩm làm sáng da 10 miếng</a><img src="images/1.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Phấn má hồng 3 trong 1 makup tone hot girl </a><img src="images/4.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 0px dotted"><a href="GioHang.html"><input type="button" class="btn-bag btn-bag-hover" value="Đi đến giỏ hàng" /></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end mid header -->
+            <!-- bottom header -->
+            <div class="bg-second">
+                <div class="bottom-header container">
+                    <ul class="main-menu">
+                        <li><a href="index.html">trang chủ</a></li>
+                        <li><a href="TrangGioiThieu.html">giới thiệu</a></li>
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="" onclick="location.assign('TrangSanPham.html')">
+                                sản phẩm
+                                <i class='bx bxs-chevron-down'></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="1-TrangDiem.html">Trang điểm</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Trang điểm mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm môi</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng, serum</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="3-ChamSocMat.html">Chăm sóc mắt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng da</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ mắt </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="4-Combo.html">Combo</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Combo trang điểm</a></li>
+                                                <li><a href="TrangSanPham.html">Combo da mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Combo cho mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <li><a href="TrangKhuyenMai.html">khuyến mãi</a></li>
+                        <li><a href="TrangBlog1.html">blog</a></li>
+                        <li><a href="TrangLienHe.html">liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end bottom header -->
+        </div>
+        <!-- end main header -->
+    </header>
+    <!-- end header -->
+
+    <div style="background-color: #eab9b9; height: 500px; width: 95%" align="center">
+        <h2 style="margin-top: 25px">Thông tin phản hồi của bạn đã được lưu lại! </h2>
+        <br />
+        <hr />
+        <br />
+        <a href="index.html">
+            <input type="button" class="btn-process btn-process-hover"
+                   onclick="dieu_huong()" value="Về trang chủ" />
+        </a>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-second">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">LIÊN HỆ</h3>
+
+                    <ul class="menu">
+
+                        <li>
+                            <a href="#"><i class='bx bx-current-location'>&nbsp;</i>Hồ Chí Minh, Vietnam</a>
+                        </li>
+                        <li><a href="#"><i class='bx bx-phone-call'>&nbsp;</i>0123456789</a></li>
+                        <li><a href="#"><i class='bx bx-check'>&nbsp;</i>(miễn phí 24/7)</a></li>
+                        <li><a href="#"><i class='bx bx-mail-send'>&nbsp;</i>wasabi@gmail.com</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Sản phẩm</h3>
+                    <ul class="menu">
+                        <li><a href="4-Combo.html">Commbo</a></li>
+                        <li><a href="1-TrangDiem.html">Trang điểm</a></li>
+                        <li><a href="3-ChamSocMat.html">Chăm sóc mắt</a></li>
+                        <li><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Dịch vụ</h3>
+                    <ul class="menu">
+                        <li><a href="TrangBlog1.html">Blog</a></li>
+                        <li><a href="TrangLienHe.html">Liên hệ</a></li>
+                        <li><a href="TrangKhuyenMai.html">Khuyến mãi</a></li>
+                        <li><a href="TrangGioiThieu.html">Các chính sách</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-3 col-md-12 col-sm-12">
+                    <div class="contact">
+                        <h3 class="contact-header">
+                            <img src="logo/nền trong suốt.png" height="100" style="opacity: 0.9" />
+                        </h3>
+                        <p align="center" style="margin-bottom: 10px"><b>Social Media</b></p>
+                        <ul class="contact-socials">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/" target="_blank">
+                                    <i class='bx bxl-facebook-circle'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/" target="_blank">
+                                    <i class='bx bxl-instagram-alt'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pinterest" href="https://www.pinterest.com/" target="_blank">
+                                    <i class='bx bxl-pinterest'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://twitter.com/ " target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-12 col-sm-12">
+                    <p align="center"><b>Đăng kí nhận tin để nhận ưu đãi hấp dẫn hơn!</b></p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Nhập email tại đây...">
+                        <button onclick="alert('Đăng kí nhận tin thành công!')">Đăng kí</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <a href="#">&copy; Bản quyền thuộc về WASABI Team</a>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- app js -->
+    <script src="./js/app.js"></script>
+</body>
+</html>

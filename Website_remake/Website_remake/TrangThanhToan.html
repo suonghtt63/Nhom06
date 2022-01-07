@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--icon logo trên tiêu đề-->
+    <link rel="shortcut icon" href="logo/nền trong suốt.png" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            /////// Prevent closing from click inside dropdown
+            document.querySelectorAll(".dropdown-menu").forEach(function (element) {
+                element.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                });
+            });
+        });
+
+    </script>
+    <style>
+        img {
+            vertical-align: middle;
+        }
+
+        .option {
+            height: 30px;
+            background-color: #fff;
+            transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            font-size: 16px;
+            font-family: Quicksand;
+            border: none
+        }
+
+        .Trangthanhtoan {
+            display: flex;
+            flex-direction: row;
+            height: 800px;
+        }
+
+            .Trangthanhtoan .Container_1 {
+                flex: 3;
+            }
+
+            .Trangthanhtoan .Container_2 {
+                flex: 4;
+            }
+
+        .sanpham {
+            width: 500px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 30px;
+        }
+
+            .sanpham .Hinhanh_sp img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .sanpham .Hinhanh_sp {
+                flex: 2;
+            }
+
+            .sanpham .DonGia {
+                flex: 2;
+                text-align: right;
+            }
+
+            .sanpham .TenSp {
+                flex: 6;
+            }
+
+
+        .divVoucher {
+            height: 80px;
+            width: 500px;
+            padding: 70px 0;
+            text-align: center;
+            position: relative;
+            border-top: 1px solid #893939;
+            border-bottom: 1px solid #893939;
+            margin-bottom: 20px;
+        }
+
+        .Sudung {
+            height: 40px;
+            width: 100px;
+            position: absolute;
+            transform: translateY(-50%);
+            right: 0px;
+            background-color: #893939;
+            border: none;
+            color: black;
+            padding: 5px 24px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 15px;
+        }
+
+        .Nhapvoucher {
+            height: 40px;
+            width: 350px;
+            position: absolute;
+            transform: translateY(-50%);
+            left: 0px;
+            border: none;
+            padding: 5px 30px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 15px;
+        }
+
+        .item_tamtinh {
+            display: flex;
+            flex-direction: row;
+        }
+
+            .item_tamtinh .Tamtinh {
+                flex: 3;
+            }
+
+            .item_tamtinh .Gia_tamtinh {
+                flex: 1;
+                position: absolute;
+                right: 0px;
+            }
+
+        .item_phivanchuyen {
+            display: flex;
+            flex-direction: row;
+        }
+
+            .item_phivanchuyen .phivanchuyen {
+                flex: 3;
+            }
+
+            .item_phivanchuyen .Gia_vanchuyen {
+                flex: 1;
+                position: absolute;
+                right: 0px;
+            }
+
+        .item_giamgia {
+            display: flex;
+            flex-direction: row;
+        }
+
+            .item_giamgia .voucher {
+                flex: 3;
+            }
+
+            .item_giamgia .Gia_voucher {
+                flex: 1;
+                position: absolute;
+                right: 0px;
+            }
+
+        .item_thanhtien {
+            display: flex;
+            flex-direction: row;
+        }
+
+            .item_thanhtien .Thanhtien {
+                flex: 3;
+                position: absolute;
+                left: 0px;
+            }
+
+            .item_thanhtien .total {
+                flex: 1;
+                position: absolute;
+                right: 0px;
+            }
+
+        .Ten {
+            height: 40px;
+            width: 700px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+            .Ten .hovaten {
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                border: none;
+            }
+
+        .mail_sdt {
+            height: 40px;
+            width: 700px;
+            position: relative;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+            .mail_sdt .email {
+                width: 65%;
+                height: 100%;
+                border-radius: 5px;
+                border: none;
+            }
+
+            .mail_sdt .Sdt {
+                width: 30%;
+                height: 100%;
+                border-radius: 5px;
+                border: none;
+                position: absolute;
+                right: 0;
+            }
+
+        .tinh_huyen {
+            height: 40px;
+            width: 700px;
+            position: relative;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+            .tinh_huyen .Tinh {
+                width: 30%;
+                height: 100%;
+                border-radius: 5px;
+                border: none;
+                margin-right: 10px;
+            }
+
+            .tinh_huyen .Huyen {
+                width: 30%;
+                height: 100%;
+                border-radius: 5px;
+                border: none;
+                margin-right: 10px;
+                position: absolute;
+                right: 245px;
+                left: 245px;
+            }
+
+            .tinh_huyen .Xa {
+                width: 30%;
+                height: 100%;
+                border-radius: 5px;
+                border: none;
+                position: absolute;
+                right: 0;
+            }
+
+        .dchi_cuthe {
+            height: 40px;
+            width: 700px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+            .dchi_cuthe .Diachi {
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                border: none;
+            }
+
+        .cod {
+            background-color: white;
+            border-radius: 5px;
+            padding: 3px;
+            border: 1.5px solid brown;
+            height: 40px;
+            width: 700px;
+        }
+
+        .banking {
+            background-color: white;
+            border-radius: 5px;
+            padding: 3px;
+            border: 1.5px solid brown;
+            height: 40px;
+            width: 700px;
+        }
+
+        .momo {
+            background-color: white;
+            border-radius: 5px;
+            padding: 3px;
+            border: 1.5px solid brown;
+            height: 40px;
+            width: 700px;
+        }
+
+        .thongtin_sp {
+            width: 500px;
+            position: absolute;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .Container_1 {
+            position: relative;
+            border-top: 2px solid #C18989;
+            border-right: 2px solid #C18989;
+        }
+
+        .Container_2 {
+            position: relative;
+            border-top: 2px solid #C18989;
+        }
+
+        .thongtin_gh {
+            width: 700px;
+            position: absolute;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            height: 100%
+        }
+
+        .End {
+            position: relative;
+            margin-top: 70px;
+        }
+
+            .End .out {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                left: 0;
+                transform: translateY(-50%);
+            }
+
+            .End .Text {
+                position: absolute;
+                left: 50px;
+                transform: translateY(-50%);
+            }
+
+            .End .btn-process {
+                width: 300px;
+                font-weight: bold;
+                position: absolute;
+                right: 0;
+                border: 2px solid #C18989;
+                background-color: #C18989;
+                color: black;
+                padding: 15px 52px;
+                text-align: center;
+                font-size: 16px;
+                border-radius: 30px;
+                transform: translateY(-50%);
+                text-transform: uppercase;
+            }
+        /*button process*/
+
+            .End .btn-process-hover {
+                transition: all 0.3s ease-in-out;
+            }
+
+                .End .btn-process-hover:hover {
+                    background-color: white;
+                    color: #C18989;
+                }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <!-- mobile menu -->
+        <div class="mobile-menu bg-main">
+            <a href="index.html"><img class="mb-logo" src="logo/5-ngang.png" height="50" /></a>
+            <span class="mb-menu-toggle" id="mb-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </span>
+        </div>
+        <!-- end mobile menu -->
+        <!-- main header -->
+        <div class="header-wrapper" id="header-wrapper">
+            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+                <i class='bx bx-x'></i>
+            </span>
+            <!-- top header -->
+            <div class="bg-second">
+                <div class="top-header container">
+                    <ul class="devided">
+                        <li>
+                            <a href="#">Hotline: 840123456789</a>
+                        </li>
+                        <li>
+                            <a href="#"> wasabishop@mail.com</a>
+                        </li>
+                    </ul>
+                    <ul class="devided">
+                        <li class="dropdown">
+                            <a href="">Ban quản trị</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="AdminDangNhap.html">Đăng nhập </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end top header -->
+            <!-- mid header -->
+            <div class="bg-main">
+                <div class="mid-header container">
+                    <a href="index.html"><img class="logo" src="logo/5-ngang.png" height="55" /></a>
+                    <div class="search">
+                        <input type="text" placeholder="Nhập nội dung tìm kiếm...">
+                        <i class='bx bx-search-alt'></i>
+                    </div>
+                    <ul class="user-menu">
+                        <li class="dropdown">
+                            <a href="">Tài khoản</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="DangNhap.html">Đăng nhập </a></li>
+                                <li><a href="DangKy.html">Đăng ký </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-notice">
+                            <a href=""><i class='bx bx-bell'></i></a>
+                            <ul class="dropdown-content-notice">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bạn nhận được 2 voucher giảm giá trong tháng này! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Sản phẩm ở giỏ hàng của bạn đang được giảm giá, mua ngay! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Năm hết tết đến rồi, cùng Wasabi chốt đơn cuối năm nào! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được xác nhận thanh toán COD! </a></li>
+                                <li style=" padding: 20px"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bag">
+                            <a href="GioHang.html"><i class='bx bx-shopping-bag'></i></a>
+                            <ul class="dropdown-content-bag">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bộ mặt nạ đất sét cấp ẩm làm sáng da 10 miếng</a><img src="images/1.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Phấn má hồng 3 trong 1 makup tone hot girl </a><img src="images/4.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 0px dotted"><a href="GioHang.html"><input type="button" class="btn-bag btn-bag-hover" value="Đi đến giỏ hàng" /></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end mid header -->
+            <!-- bottom header -->
+            <div class="bg-second">
+                <div class="bottom-header container">
+                    <ul class="main-menu">
+                        <li><a href="index.html">trang chủ</a></li>
+                        <li><a href="TrangGioiThieu.html">giới thiệu</a></li>
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="" onclick="location.assign('TrangSanPham.html')">
+                                sản phẩm
+                                <i class='bx bxs-chevron-down'></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="1-TrangDiem.html">Trang điểm</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Trang điểm mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm môi</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng, serum</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="3-ChamSocMat.html">Chăm sóc mắt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng da</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ mắt </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="4-Combo.html">Combo</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Combo trang điểm</a></li>
+                                                <li><a href="TrangSanPham.html">Combo da mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Combo cho mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <li><a href="TrangKhuyenMai.html">khuyến mãi</a></li>
+                        <li><a href="TrangBlog1.html">blog</a></li>
+                        <li><a href="TrangLienHe.html">liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end bottom header -->
+        </div>
+        <!-- end main header -->
+    </header>
+    <!-- end header -->
+
+    <!-- nội dung trang-->
+    <p>
+
+        <div style="background-color: #EAB9B9; height:80px ">
+            <h1 style="margin-left:65px">Thanh toán</h1>
+        </div>
+        <div class="Trangthanhtoan">
+            <div class="Container_1">
+                <div class="thongtin_sp">
+                    <h3 style="margin-bottom: 20px; transform: translateY(-500%) ">Thông tin sản phẩm</h3>
+                    <div class="sanpham">
+                        <div class="Hinhanh_sp">
+                            <img style="border-radius: 20px" src="https://product.hstatic.net/200000245215/product/obagi-bha_ebd93f169acf463e89fb7368cc2792d2_master.jpg" />
+                        </div>
+                        <p class="TenSp" style="font-weight:bold">
+                            Tẩy tế bào chết Obagi BHA Clenziderm MD Pore Therapy 148 mL
+                        </p>
+                        <p style="font-weight:bold" class="DonGia">
+                            960,000 đ
+                        </p>
+                    </div>
+                    <!--<hr style="border-block: 1px solid #C18989 " />-->
+                    <div class="divVoucher">
+                        <input class="Nhapvoucher" type="text" placeholder="Nhập mã giảm giá" />
+                        <button class="Sudung">Sử dụng</button>
+                    </div>
+                    <!--<hr style="border-block: 1px solid #C18989 " />-->
+                    <div class="item_tamtinh">
+                        <p style="font-weight:bold" class="Tamtinh">Tạm tính:</p>
+                        <p style="font-weight:bold" class="Gia_tamtinh">960,000 đ</p>
+                    </div>
+                    <div class="item_phivanchuyen">
+                        <p style="font-weight:bold" class="phivanchuyen">Phí vận chuyển:</p>
+                        <p style="font-weight:bold" class="Gia_vanchuyen">30,000 đ</p>
+                    </div>
+                    <div class="item_giamgia">
+                        <p style="font-weight:bold" class="voucher">Voucher giảm giá:</p>
+                        <p style="font-weight:bold" class="Gia_voucher">-15,000 đ</p>
+                    </div>
+                    <!--<hr style="border-block: 1px solid #C18989 " />-->
+                    <div class="item_thanhtien">
+                        <h4 class="Thanhtien">Thành tiền:</h4>
+                        <h4 class="total">975,000 đ</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="Container_2">
+                <div class="thongtin_gh">
+                    <form action="TrangDatHangThanhCong.html" name="myForm" onsubmit="return validateForm()">
+                        <h3 style="margin-top: 5px">Thông tin giao hàng</h3>
+                        <h5>Bạn đã có tài khoản? <a href="DangNhap.html" style="text-decoration-line: none; color: brown; font-weight: bold">Đăng nhập</a></h5>
+                        <br />
+                        <div class="Ten">
+                            <input class="hovaten" id="hoTen" name="hoTen" type="text" placeholder="Họ và tên" />
+                        </div>
+                        <div class="mail_sdt">
+                            <input class="email" type="email" id="email" name="email" placeholder="Email" />
+                            <input class="Sdt" type="text" id="dienThoai" name="dienThoai" placeholder="Số điện thoại" />
+                        </div>
+                        <div class="tinh_huyen">
+                            <select class="Tinh" id="province">
+                                <option value="null">Tỉnh/Thành phố</option>
+                                <option value="01">Hà Nội</option>
+
+                                <option value="02">Tỉnh Hà Giang</option>
+
+                                <option value="04">Tỉnh Cao Bằng</option>
+
+                                <option value="06">Tỉnh Bắc Kạn</option>
+
+                                <option value="08">Tỉnh Tuyên Quang</option>
+
+                                <option value="10">Tỉnh Lào Cai</option>
+
+                                <option value="11">Tỉnh Điện Biên</option>
+
+                                <option value="12">Tỉnh Lai Châu</option>
+
+                                <option value="14">Tỉnh Sơn La</option>
+
+                                <option value="15">Tỉnh Yên Bái</option>
+
+                                <option value="17">Tỉnh Hoà Bình</option>
+
+                                <option value="19">Tỉnh Thái Nguyên</option>
+
+                                <option value="20">Tỉnh Lạng Sơn</option>
+
+                                <option value="22">Tỉnh Quảng Ninh</option>
+
+                                <option value="24">Tỉnh Bắc Giang</option>
+
+                                <option value="25">Tỉnh Phú Thọ</option>
+
+                                <option value="26">Tỉnh Vĩnh Phúc</option>
+
+                                <option value="27">Tỉnh Bắc Ninh</option>
+
+                                <option value="30">Tỉnh Hải Dương</option>
+
+                                <option value="31">Thành phố Hải Phòng</option>
+
+                                <option value="33">Tỉnh Hưng Yên</option>
+
+                                <option value="34">Tỉnh Thái Bình</option>
+
+                                <option value="35">Tỉnh Hà Nam</option>
+
+                                <option value="36">Tỉnh Nam Định</option>
+
+                                <option value="37">Tỉnh Ninh Bình</option>
+
+                                <option value="38">Tỉnh Thanh Hóa</option>
+
+                                <option value="40">Tỉnh Nghệ An</option>
+
+                                <option value="42">Tỉnh Hà Tĩnh</option>
+
+                                <option value="44">Tỉnh Quảng Bình</option>
+
+                                <option value="45">Tỉnh Quảng Trị</option>
+
+                                <option value="46">Tỉnh Thừa Thiên Huế</option>
+
+                                <option value="48">Thành phố Đà Nẵng</option>
+
+                                <option value="49">Tỉnh Quảng Nam</option>
+
+                                <option value="51">Tỉnh Quảng Ngãi</option>
+
+                                <option value="52">Tỉnh Bình Định</option>
+
+                                <option value="54">Tỉnh Phú Yên</option>
+
+                                <option value="56">Tỉnh Khánh Hòa</option>
+
+                                <option value="58">Tỉnh Ninh Thuận</option>
+
+                                <option value="60">Tỉnh Bình Thuận</option>
+
+                                <option value="62">Tỉnh Kon Tum</option>
+
+                                <option value="64">Tỉnh Gia Lai</option>
+
+                                <option value="66">Tỉnh Đắk Lắk</option>
+
+                                <option value="67">Tỉnh Đắk Nông</option>
+
+                                <option value="68">Tỉnh Lâm Đồng</option>
+
+                                <option value="70">Tỉnh Bình Phước</option>
+
+                                <option value="72">Tỉnh Tây Ninh</option>
+
+                                <option value="74">Tỉnh Bình Dương</option>
+
+                                <option value="75">Tỉnh Đồng Nai</option>
+
+                                <option value="77">Tỉnh Bà Rịa - Vũng Tàu</option>
+
+                                <option value="79">Thành phố Hồ Chí Minh</option>
+
+                                <option value="80">Tỉnh Long An</option>
+
+                                <option value="82">Tỉnh Tiền Giang</option>
+
+                                <option value="83">Tỉnh Bến Tre</option>
+
+                                <option value="84">Tỉnh Trà Vinh</option>
+
+                                <option value="86">Tỉnh Vĩnh Long</option>
+
+                                <option value="87">Tỉnh Đồng Tháp</option>
+
+                                <option value="89">Tỉnh An Giang</option>
+
+                                <option value="91">Tỉnh Kiên Giang</option>
+
+                                <option value="92">Thành phố Cần Thơ</option>
+
+                                <option value="93">Tỉnh Hậu Giang</option>
+
+                                <option value="94">Tỉnh Sóc Trăng</option>
+
+                                <option value="95">Tỉnh Bạc Liêu</option>
+
+                                <option value="96">Tỉnh Cà Mau</option>
+                            </select>
+                            <select class="Huyen" id="district">
+                                <option value="Q1">Quận/Huyện</option>
+                                <option value="Q2">Quận 1</option>
+                                <option value="Q3">Quận 2</option>
+                                <option value="Q4">Quận 3</option>
+                                <option value="Q5">Quận 4</option>
+                            </select>
+                            <select class="Xa" id="ward">
+                                <option value="X1">Xã/Phường</option>
+                                <option value="X2">Xã 1</option>
+                                <option value="X3">Xã 2</option>
+                                <option value="X4">Xã 3</option>
+                                <option value="X5">Xã 4</option>
+                            </select>
+                        </div>
+                        <div class="dchi_cuthe">
+                            <input class="Diachi" name="diaChi" id="diaChi" placeholder="Địa chỉ (số nhà, tên đường)" />
+                        </div>
+                        <br />
+                        <h3>Phương thức vận chuyển</h3>
+                        <div style="background-color:white; border-radius:10px; text-align:center; padding:5px; width:700px">
+                            <img style="width: 70px; height:70px" src="icons/box.png" />
+                            <h6>Vui lòng chọn tỉnh/thành để có danh sách phương thức vận chuyển.</h6>
+                        </div>
+                        <br />
+                        <h3>Phương thức thanh toán</h3>
+                        <div class="cod ">
+                            <input name="phuongthuc_vc" type="radio" value="cod" style="margin-top: 10px" /> Thanh toán khi nhận hàng (COD)
+                        </div>
+                        <div class="momo">
+                            <input name="phuongthuc_vc" type="radio" value="momo" />
+                            <select class="option" style="border:none" id="Cars">
+                                <option value="momo1">Thanh toán bằng ví MoMo</option>
+                                <option value="momo2">Số dư khả dụng (500,000 đ)</option>
+                            </select>
+                        </div>
+                        <div class="banking">
+                            <input name="phuongthuc_vc" type="radio" value="banking" />
+                            <select class="option" style="border:none" id="Cars">
+                                <option value="nh1">Thanh toán qua tài khoản ngân hàng</option>
+                                <option value="nh2">Chọn tài khoản ngân hàng</option>
+                                <option value="nh3">Ngân hàng Vietcombank (VCB)</option>
+                                <option value="nh3">Ngân hàng Á Châu (ACB)</option>
+                                <option value="nh3">Ngân hàng Tiên Phong (TPB)</option>
+                                <option value="nh3">Ngân hàng Sacombank (SCB)</option>
+                            </select>
+                        </div>
+                        <div class="End">
+                            <a href="GioHang.html" style="color: maroon"><i class="bx bx-log-out" width="40px">&nbsp;</i>Quay lại giỏ hàng</a>
+                            <a href="TrangDatHangThanhCong.html"><input class="btn-process btn-process-hover" type="submit" value="Đặt hàng" /></a>
+                        </div>
+                    </form>
+                    <script type="text/javascript">
+                        function validateForm() {
+                            //Họ và tên phải được điền
+                            var hoTen = document.forms["myForm"]["hoTen"].value;
+                            if (hoTen == "") {
+                                alert("Họ và tên không được để trống!");
+                                return false;
+                            }
+
+                            //Email phải được điền chính xác
+                            var email = document.forms["myForm"]["email"].value;
+                            var aCong = email.indexOf("@");
+                            var dauCham = email.lastIndexOf(".");
+                            if (email == "") {
+                                alert("Email không được để trống!");
+                                return false;
+                            }
+                            else if ((aCong < 1) || (dauCham < aCong + 2) || (dauCham + 2 > email.length)) {
+                                alert("Email bạn điền không chính xác!");
+                                return false;
+                            }
+                            //Nhập số điện thoại
+                            var dienThoai = document.forms["myForm"]["dienThoai"].value;
+                            var kiemTraDT = isNaN(dienThoai);
+                            if (dienThoai == "") {
+                                alert("Số điện thoại không được để trống!");
+                                return false;
+                            }
+                            if (kiemTraDT == true) {
+                                alert("Số điện thoại phải để ở định dạng số!");
+                                return false;
+                            }
+                            if (dienThoai.length > 10 || dienThoai.length < 10) {
+                                alert("Số điện thoại phải chứa 10 ký tự số!");
+                                return false;
+                            }
+                            var diaChi = document.forms["myForm"]["diaChi"].value;
+                            if (diaChi == "") {
+                                alert("Địa chỉ không được để trống!");
+                                return false;
+                            }
+                        }
+                    </script>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </p>
+
+    <!-- footer -->
+    <footer class="bg-second">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">LIÊN HỆ</h3>
+
+                    <ul class="menu">
+
+                        <li>
+                            <a href="#"><i class='bx bx-current-location'>&nbsp;</i>Hồ Chí Minh, Vietnam</a>
+                        </li>
+                        <li><a href="#"><i class='bx bx-phone-call'>&nbsp;</i>0123456789</a></li>
+                        <li><a href="#"><i class='bx bx-check'>&nbsp;</i>(miễn phí 24/7)</a></li>
+                        <li><a href="#"><i class='bx bx-mail-send'>&nbsp;</i>wasabi@gmail.com</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Sản phẩm</h3>
+                    <ul class="menu">
+                        <li><a href="4-Combo.html">Commbo</a></li>
+                        <li><a href="1-TrangDiem.html">Trang điểm</a></li>
+                        <li><a href="3-ChamSocMat.html">Chăm sóc mắt</a></li>
+                        <li><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Dịch vụ</h3>
+                    <ul class="menu">
+                        <li><a href="TrangBlog1.html">Blog</a></li>
+                        <li><a href="TrangLienHe.html">Liên hệ</a></li>
+                        <li><a href="TrangKhuyenMai.html">Khuyến mãi</a></li>
+                        <li><a href="TrangGioiThieu.html">Các chính sách</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-3 col-md-12 col-sm-12">
+                    <div class="contact">
+                        <h3 class="contact-header">
+                            <img src="logo/nền trong suốt.png" height="100" style="opacity: 0.9" />
+                        </h3>
+                        <p align="center" style="margin-bottom: 10px"><b>Social Media</b></p>
+                        <ul class="contact-socials">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/" target="_blank">
+                                    <i class='bx bxl-facebook-circle'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/" target="_blank">
+                                    <i class='bx bxl-instagram-alt'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pinterest" href="https://www.pinterest.com/" target="_blank">
+                                    <i class='bx bxl-pinterest'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://twitter.com/ " target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-12 col-sm-12">
+                    <p align="center"><b>Đăng kí nhận tin để nhận ưu đãi hấp dẫn hơn!</b></p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Nhập email tại đây...">
+                        <button onclick="alert('Đăng kí nhận tin thành công!')">Đăng kí</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <a href="#">&copy;2021 Bản quyền thuộc về WASABI Team</a>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- app js -->
+    <script src="./js/app.js"></script>
+
+</body>
+</html>

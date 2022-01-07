@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Bảng 6: Khách hàng</title>
+    <style type="text/css">
+        * {
+            font-family: Quicksand
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: ThreeDLightShadow;
+        }
+
+        th {
+            background-color: black;
+            color: white
+        }
+
+        .none {
+            color: red;
+            font-weight: 400
+        }
+
+        .process {
+            color: yellow;
+            font-weight: 400
+        }
+
+        .done {
+            color: limegreen;
+            font-weight: 400
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+    <script type="text/javascript">
+        var str = "<khachhangs><khachhang><TenKH>Trần Thị Diễm Châu</TenKH>" +
+            "<DiaChi>KTX khu B, phường Linh Trung, Quận Thủ Đức, Thành phố HCM</DiaChi>" +
+            "<TongDonHang>5</TongDonHang>" +
+            "<DonHangGanNhat>#100010</DonHangGanNhat>" +
+            "<TongTien>1,520,000 đ</TongTien></khachhang>"
+            +
+            "<khachhang><TenKH>Trần Thị Hạnh Trang</TenKH>" +
+            "<DiaChi>số 8, phường Linh Tây, Quận Phú Nhuận, Thành phố HCM</DiaChi>" +
+            "<TongDonHang>10</TongDonHang>" +
+            "<DonHangGanNhat>#162610</DonHangGanNhat>" +
+            "<TongTien>5,290,000 đ</TongTien></khachhang>"
+            +
+            "<khachhang><TenKH>Lê Nguyễn Thu Thắm</TenKH>" +
+            "<DiaChi>số 59, phường Bùi Xuân, Quận 9, Thành phố HCM</DiaChi>" +
+            "<TongDonHang>3</TongDonHang>" +
+            "<DonHangGanNhat>#900270</DonHangGanNhat>" +
+            "<TongTien>820,000 đ</TongTien></khachhang>"
+            +
+            "<khachhang><TenKH>Hồ Thị Như Thảo</TenKH>" +
+            "<DiaChi>sô 54, phường Hồ Tây, Quận Bình Thạnh, Thành phố HCM</DiaChi>" +
+            "<TongDonHang>7</TongDonHang>" +
+            "<DonHangGanNhat>#621190</DonHangGanNhat>" +
+            "<TongTien>3,120,000 đ</TongTien></khachhang>"
+            +
+            "<khachhang><TenKH>Hoàng Thị Thu Sương</TenKH>" +
+            "<DiaChi>số 34, phường Linh Trung, Quận 1, Thành phố HCM</DiaChi>" +
+            "<TongDonHang>9</TongDonHang>" +
+            "<DonHangGanNhat>#542710</DonHangGanNhat>" +
+            "<TongTien>4,527,000 đ</TongTien></khachhang>"
+            +
+            "<khachhang><TenKH>Võ Ngọc Huyền Trân</TenKH>" +
+            "<DiaChi>số 89, phường Cách Mạng Tháng 8, Quận 5, Thành phố HCM</DiaChi>" +
+            "<TongDonHang>9</TongDonHang>" +
+            "<DonHangGanNhat>#320010</DonHangGanNhat>" +
+            "<TongTien>5,630,000 đ</TongTien></khachhang></khachhangs > ";
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(str, "text/xml");
+        function loadData() {
+            var x, i, table;
+            table = "<tr><th>Khách hàng</th><th >Địa chỉ</th><th >Tổng đơn hàng</th><th >Đơn hàng gần nhất</th><th >Tổng tiền</th></tr>";
+            x = xmlDoc.getElementsByTagName("khachhang")
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("TenKH")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("DiaChi")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TongDonHang")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("DonHangGanNhat")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TongTien")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("myTB").innerHTML = table;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <input class="btn-flat btn-hover" type="button" value="DANH SÁCH KHÁCH HÀNG" onclick="loadData()" />
+    </center>
+    <br />
+    <table id="myTB">
+    </table>
+</body>
+</html>

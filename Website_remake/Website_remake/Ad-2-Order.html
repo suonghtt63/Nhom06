@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        * {
+            font-family: Quicksand
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: ThreeDLightShadow;
+        }
+
+        th {
+            background-color: black;
+            color: white
+        }
+
+        .none {
+            color: red;
+            font-weight: 400
+        }
+
+        .process {
+            color: yellow;
+            font-weight: 400
+        }
+
+        .done {
+            color: limegreen;
+            font-weight: 400
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+    <script type="text/javascript">
+        function taiDuLieu() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET", "data/order_catalog.xml", true);
+            xhttp.send();
+
+        }
+        function myFunction(xml) {
+            tbody = document.getElementById("bodycd");
+            var i;
+            var xmlDoc = xml.responseXML;//trả về kết quả
+            html = "<table border='1' cellpadding='5'>";
+            var dsSach = xmlDoc.getElementsByTagName("ORDER");
+            for (i = 0; i < dsSach.length; i++) {
+                MADH = dsSach[i].getElementsByTagName("MADH")[0].childNodes[0].nodeValue;
+                TENSP = dsSach[i].getElementsByTagName("TENSP")[0].childNodes[0].nodeValue;
+                TGDH = dsSach[i].getElementsByTagName("TGDH")[0].childNodes[0].nodeValue;
+                XACNHAN = dsSach[i].getElementsByTagName("XACNHAN")[0].childNodes[0].nodeValue;
+                NGUOIXN = dsSach[i].getElementsByTagName("NGUOIXN")[0].childNodes[0].nodeValue;
+                TGXN = dsSach[i].getElementsByTagName("TGXN")[0].childNodes[0].nodeValue;
+                TTTT = dsSach[i].getElementsByTagName("TTTT")[0].childNodes[0].nodeValue;
+                TTGH = dsSach[i].getElementsByTagName("TTGH")[0].childNodes[0].nodeValue;
+                TONG = dsSach[i].getElementsByTagName("TONG")[0].childNodes[0].nodeValue;
+                GHICHU = dsSach[i].getElementsByTagName("GHICHU")[0].childNodes[0].nodeValue;
+
+                tr = document.createElement("tr");
+                tbody.appendChild(tr);
+
+                td = document.createElement("td");
+                td.innerHTML = MADH;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = TENSP;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = TGDH;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = XACNHAN;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = NGUOIXN;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = TGXN;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = TTTT;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = TTGH;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = TONG;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = GHICHU;
+                tr.appendChild(td);
+
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <center>
+        <input class="btn-flat btn-hover" type="button" value="Đơn hàng" onclick="taiDuLieu()" />
+    </center>
+    <br />
+    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Tên sản phẩm</th>
+                <th>Thời gian đặt hàng</th>
+                <th>Xác nhận đơn</th>
+                <th>Người xác nhận</th>
+                <th>Thời gian xác nhận</th>
+                <th>Tình trạng thanh toán</th>
+                <th>Tình trạng giao hàng</th>
+                <th>Tổng tiền</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+        <tbody id="bodycd">
+        </tbody>
+    </table>
+
+</body>
+</html>
