@@ -1,0 +1,1354 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--icon logo trên tiêu đề-->
+    <link rel="shortcut icon" href="logo/logo-tron.png" />
+    <title>Trang điểm mắt</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+
+
+        .btn-view {
+            display: inline-block;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            padding: 15px 35px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+        }
+
+
+
+        .btn-flat {
+            display: inline-block;
+            border: 2px solid black;
+            background-color: black;
+            color: white;
+            padding: 15px 35px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .btn-flat-like {
+            display: inline-block;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            color: white;
+            margin-left: 20px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .btn-flat-now {
+            display: inline-block;
+            border: 2px solid var(--red);
+            background-color: var(--red);
+            color: white;
+            padding: 15px 35px;
+            font-size: 15px;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-hover:hover {
+                background-color: white;
+                color: black;
+            }
+
+        .btn-like-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-like-hover:hover {
+                background-color: white;
+                color: var(--second-bg-color);
+            }
+
+        .btn-bag-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-bag-hover:hover {
+                background-color: white;
+                color: var(--red);
+            }
+
+        .section {
+            padding: 60px 0;
+        }
+
+
+        .product-card {
+            background-color: var(--main-bg-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+            .product-card:hover {
+                background-color: ThreeDHighlight;
+                box-shadow: var(--second-bg-color) 0px 5px 20px 0;
+                transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+        .product-card-img {
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+            .product-card-img img {
+                max-height: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+
+                .product-card-img img:nth-child(2) {
+                    display: none;
+                }
+
+        .product-card:hover .product-card-img img:nth-child(1) {
+            display: none;
+        }
+
+        .product-card:hover .product-card-img img:nth-child(2) {
+            display: block;
+        }
+
+        .product-card-info {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-card-price {
+            font-size: 15px;
+        }
+
+            .product-card-price .curr-price {
+                margin-left: 5px;
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--red);
+            }
+
+        .product-btn {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-card:hover .product-btn {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .product-btn > * ~ * {
+            margin-left: 5px;
+        }
+
+        .btn-shop-now,
+        .btn-cart-add {
+            font-size: 15px;
+            padding: 5px 10px;
+            line-height: 17px;
+        }
+
+
+        .breadcumb {
+            font-weight: bold;
+            padding: 10px;
+            font-size: 14px
+        }
+
+            .breadcumb a {
+                text-transform: capitalize;
+            }
+
+                .breadcumb a:hover {
+                    color: var(--red);
+                }
+
+            .breadcumb span {
+                margin: 0 10px;
+            }
+
+        .filter-header {
+            display: block;
+            margin: 20px 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .filter-list > li {
+            margin-bottom: 20px;
+        }
+
+        .filter-list a:hover {
+            color: var(--red);
+            padding-left: 10px;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid var(--red);
+        }
+
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .price-range span {
+                flex-grow: 1;
+                text-align: center;
+                margin: 0 10px;
+            }
+
+            .price-range input {
+                width: 40%;
+                outline: none;
+                padding: 5px;
+            }
+
+        .group-checkbox {
+            text-align: left;
+        }
+
+            .group-checkbox input {
+                opacity: 0;
+                height: 0;
+                width: 0;
+                cursor: pointer;
+            }
+
+            .group-checkbox label {
+                cursor: pointer;
+                padding-left: 40px;
+                position: relative;
+                font-size: 18px
+            }
+
+                .group-checkbox label::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: -4px;
+                    width: 22px;
+                    height: 22px;
+                    background-color: white;
+                    border: 2px solid var(--second-bg-color);
+                }
+
+                .group-checkbox label > i {
+                    position: absolute;
+                    left: 2px;
+                    top: -2px;
+                    color: var(--black);
+                    transform: scale(0);
+                    font-size: 20px;
+                    transition: transform 0.1s ease-in-out;
+                }
+
+            .group-checkbox input:checked + label i {
+                transform: scale(1);
+            }
+
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+            .pagination > li > a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                margin-left: 5px;
+                font-size: 20px;
+            }
+
+                .pagination > li > a.active {
+                    background-color: var(--black);
+                    color: white;
+                }
+
+                .pagination > li > a:hover {
+                    border: 2px solid var(--black);
+                }
+
+        .product-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .product-img > img {
+                max-width: 70%;
+            }
+
+        .product-img-list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-item {
+            width: 90px;
+            cursor: pointer;
+            margin: 0 10px;
+            border: 1px solid var(--third-bg-color);
+        }
+
+
+            .product-img-item:hover {
+                background-color: #C18989;
+            }
+
+        .product-related {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-related {
+            width: 320px;
+            cursor: pointer;
+            margin: 0 10px;
+            grid-auto-rows: auto;
+            border: 2px solid #C18989;
+            background-color: #C18989;
+            border-radius: 0px 0px 20px 20px;
+            box-shadow: var(--second-bg-color) 0px 5px 20px 0;
+            transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .product-img-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .product-img-hover:hover {
+                border: 2px solid #c7c7c7;
+                background-color: #c7c7c7;
+                color: black;
+            }
+
+        .product-name {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            color: var(--red)
+        }
+
+        .product-price-origin {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            color: rgba(200, 200, 220, 0.2);
+        }
+
+        .product-row {
+            padding: 45px 0;
+        }
+
+        .product-info > * ~ * {
+            margin-top: 25px;
+        }
+
+        .product-info-detail-title {
+            font-weight: 600;
+            color: gray;
+        }
+
+        .product-description {
+            font-size: 18px;
+            padding-right: 100px;
+            text-align: justify;
+        }
+
+        .product-info-price {
+            font-weight: 600;
+            font-size: 30px;
+            color: var(--red);
+        }
+
+        .product-quantity-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .product-quantity {
+            margin: 0 10px;
+            font-size: 25px;
+        }
+
+        .product-quantity-btn {
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+            .product-quantity-btn i {
+                font-size: 20px;
+                color: var(--main-bg-color);
+            }
+
+        rating {
+            margin-top: 20px;
+            height: 40px;
+            width: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .rating i {
+            color: #ffc107;
+        }
+
+        .box-header {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+
+        .box-header-center {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            text-align: center
+        }
+
+        .product-detail-description {
+            padding-left: 50px;
+            padding-right: 50px;
+            position: relative;
+            margin-bottom: 90px;
+        }
+
+        .product-detail-description-content {
+            text-align: justify;
+            line-height: 26px;
+            font-size: 16px;
+            height: 300px;
+            overflow-y: hidden;
+            position: relative;
+        }
+
+            .product-detail-description-content.active {
+                height: max-content;
+            }
+
+        .btn-view-description {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .user-rate {
+            margin-bottom: 40px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .user-avt {
+            height: 100px;
+            width: 100px;
+            margin-right: 20px;
+            border-radius: 50%;
+            background-color: wheat;
+            overflow: hidden
+        }
+
+        .user-name {
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .name {
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: capitalize;
+            margin: 10px 0px;
+        }
+
+        .user-rate-content {
+            margin-left: 50px;
+            margin-right: 50px;
+            line-height: 25px;
+        }
+
+        .filter-quick {
+            height: 40px;
+            background-color: #fff;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0;
+            transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 2;
+            font-size: 16px;
+            font-family: Quicksand;
+            margin-right: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <!-- mobile menu -->
+        <div class="mobile-menu bg-main">
+            <a href="index.html"><img class="mb-logo" src="logo/5-ngang.png" height="50" /></a>
+            <span class="mb-menu-toggle" id="mb-menu-toggle">
+                <i class='bx bx-menu'></i>
+            </span>
+        </div>
+        <!-- end mobile menu -->
+        <!-- main header -->
+        <div class="header-wrapper" id="header-wrapper">
+            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+                <i class='bx bx-x'></i>
+            </span>
+            <!-- top header -->
+            <div class="bg-second">
+                <div class="top-header container">
+                    <ul class="devided">
+                        <li>
+                            <a href="#">Hotline: 840123456789</a>
+                        </li>
+                        <li>
+                            <a href="#"> wasabishop@mail.com</a>
+                        </li>
+                    </ul>
+                    <ul class="devided">
+                        <li class="dropdown">
+                            <a href="">Ban quản trị</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="AdminDangNhap.html">Đăng nhập </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end top header -->
+            <!-- mid header -->
+            <div class="bg-main">
+                <div class="mid-header container">
+                    <a href="index.html"><img class="logo" src="logo/5-ngang.png" height="55" /></a>
+                    <div class="search">
+                        <input type="text" placeholder="Nhập nội dung tìm kiếm...">
+                        <i class='bx bx-search-alt'></i>
+                    </div>
+                    <ul class="user-menu">
+                        <li class="dropdown">
+                            <a href="">Tài khoản</a>
+                            <i class='bx bxs-chevron-down'></i>
+                            <ul class="dropdown-content">
+                                <li><a href="DangNhap.html">Đăng nhập </a></li>
+                                <li><a href="DangKy.html">Đăng ký </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-notice">
+                            <a href=""><i class='bx bx-bell'></i></a>
+                            <ul class="dropdown-content-notice">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bạn nhận được 2 voucher giảm giá trong tháng này! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Sản phẩm ở giỏ hàng của bạn đang được giảm giá, mua ngay! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Năm hết tết đến rồi, cùng Wasabi chốt đơn cuối năm nào! </a></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Đơn hàng #20020 của bạn đã được xác nhận thanh toán COD! </a></li>
+                                <li style=" padding: 20px"><a href="">Đơn hàng #20020 của bạn đã được giao cho nhà vận chuyển! </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bag">
+                            <a href="GioHang.html"><i class='bx bx-shopping-bag'></i></a>
+                            <ul class="dropdown-content-bag">
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Bộ mặt nạ đất sét cấp ẩm làm sáng da 10 miếng</a><img src="images/1.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 1px dotted"><a href="">Phấn má hồng 3 trong 1 makup tone hot girl </a><img src="images/4.jpg" width="40" height="40" /></li>
+                                <li style=" padding: 20px; border-bottom: 0px dotted"><a href="GioHang.html"><input type="button" class="btn-bag btn-bag-hover" value="Đi đến giỏ hàng" /></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end mid header -->
+            <!-- bottom header -->
+            <div class="bg-second">
+                <div class="bottom-header container">
+                    <ul class="main-menu">
+                        <li><a href="index.html">trang chủ</a></li>
+                        <li><a href="TrangGioiThieu.html">giới thiệu</a></li>
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="" onclick="location.assign('TrangSanPham.html')">
+                                sản phẩm
+                                <i class='bx bxs-chevron-down'></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="1-TrangDiem.html">Trang điểm</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Trang điểm mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm môi</a></li>
+                                                <li><a href="TrangSanPham.html">Trang điểm mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng, serum</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="3-ChamSocMat.html">Chăm sóc mắt</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Kem dưỡng da</a></li>
+                                                <li><a href="TrangSanPham.html">Sữa rửa mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Tẩy tế bào</a></li>
+                                                <li><a href="TrangSanPham.html">Mặt nạ mắt </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3><a href="4-Combo.html">Combo</a></h3>
+                                            <ul>
+                                                <li><a href="TrangSanPham.html">Combo trang điểm</a></li>
+                                                <li><a href="TrangSanPham.html">Combo da mặt</a></li>
+                                                <li><a href="TrangSanPham.html">Combo cho mắt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <li><a href="TrangKhuyenMai.html">khuyến mãi</a></li>
+                        <li><a href="TrangBlog1.html">blog</a></li>
+                        <li><a href="TrangLienHe.html">liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end bottom header -->
+        </div>
+        <!-- end main header -->
+    </header>
+    <!-- end header -->
+    <!-- products content -->
+    <div class="bg-main">
+        <!-- đường dẫn -->
+        <div class="breadcumb" style="border-bottom: 0.5px dotted ">
+            <a href="index.html">Trang chủ</a>
+            <span><img src="icons/right.png" width="10" height="10" /></span>
+            <a href="TrangSanPham.html">Trang điểm mắt</a>
+        </div>
+        <!-- 2 cột -->
+        <div class="box">
+            <div class="row">
+                <div class="col-3 filter-col" id="filter-col">
+                    <div align="left">
+                        <div class=" box filter-toggle-box" id="filter-close">
+                            <img src="icons/close-full.png" style="width: 22px; height: 22px; padding: 0px; margin: 0px; right: 0" />
+                        </div>
+                    </div>
+                    <div class="box">
+                        <span class="filter-header">
+                            Danh mục
+                        </span>
+                        <ul class="filter-list">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="TrangSanPham.html"> | Sản phẩm</a></li>
+                            <li><a href="TrangKhuyenMai.html">Khuyến mãi</a></li>
+                            <li><a href="TrangBlog1.html">Blogs</a></li>
+                            <li><a href="TrangLienHe.html">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                    <!-- Lọc theo thương hiệu -->
+                    <div class="box">
+                        <span class="filter-header">
+                            Thương hiệu
+                        </span>
+                        <ul class="filter-list">
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember1" checked="checked">
+                                    <label for="remember1">
+                                        Laneige
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember2">
+                                    <label for="remember2">
+                                        TheFaceShop
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember3">
+                                    <label for="remember3">
+                                        L'OREAL
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember4">
+                                    <label for="remember4">
+                                        Laurelle
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember5">
+                                    <label for="remember5">
+                                        Khác
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--lọc theo giá-->
+
+                    <div class="box">
+                        <span class="filter-header">
+                            Giá
+                        </span>
+                        <ul class="filter-list">
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember11" checked="checked">
+                                    <label for="remember11">
+                                        Dưới 100.000 đ
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember22">
+                                    <label for="remember22">
+                                        100.000 đ - 200.000 đ
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember33">
+                                    <label for="remember33">
+                                        200.000 đ - 300.000 đ
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember44">
+                                    <label for="remember44">
+                                        300.000 đ - 400.000 đ
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember55">
+                                    <label for="remember55">
+                                        400.000 đ - 500.000 đ
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remember66">
+                                    <label for="remember66">
+                                        Trên 500.000 đ
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Lọc theo đánh giá -->
+                    <div class="box">
+                        <span class="filter-header">
+                            Đánh giá
+                        </span>
+                        <!--checkbox-->
+                        <ul class="filter-list">
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remembera" checked="checked">
+                                    <label for="remembera">
+                                        <span class="rating">
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                        </span>
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="rememberb">
+                                    <label for="rememberb">
+                                        <span class="rating">
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                        </span>
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="rememberc">
+                                    <label for="rememberc">
+                                        <span class="rating">
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                        </span>
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="rememberd">
+                                    <label for="rememberd">
+                                        <span class="rating">
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+
+                                        </span>
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group-checkbox">
+                                    <input type="checkbox" id="remembere">
+                                    <label for="remembere">
+                                        <span class="rating">
+                                            <i><img src="icons/star-full.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                            <i><img src="icons/star-thin.png" width="30" height="30" /></i>
+                                        </span>
+                                        <i><img src="icons/checked-tick-square.png" width="22" height="22" /></i>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Hết lọc theo đánh giá -->
+                </div>
+                <!-- hệt cột bộ lọc -->
+                <!-- cột 2:banner, thanh lọc nhanh, sản phẩm -->
+                <!-- banner -->
+                <div class="col-9 col-md-12">
+                    <div>
+                        <div style="padding: 5px">
+                            <span><img src="images/trang-diem.jpg" /></span>
+                        </div>
+                    </div>
+                    <!-- thanh lọc nhanh -->
+                    <div class="box bg-main">
+                        <!--Chia làm 2 cột-->
+                        <div class="row bg-second">
+                            <!--bộ lọc khi mở bằng điện thoại-->
+                            <div class=" box filter-toggle-box" id="filter-toggle" style="font-size: 35px; padding: 0px; margin-left: 10px">
+                                <img src="icons/filter-options.png" width="35" />
+                            </div>
+                            <!--Cột 1-->
+                            <div>
+                                <ul>
+                                    <li style="padding-top: 8px; margin: 0 15px 0 5px">
+                                        <a> | Sắp sếp theo:</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Cột 2-->
+                            <div>
+                                <form action="">
+                                    <select name="filter-quick" class="filter-quick">
+                                        <option value="Từ A-Z">Từ A-Z</option>
+                                        <option value="Từ Z-A">Từ Z-A</option>
+                                        <option value="Giá tăng dần">Giá tăng dần</option>
+                                        <option value="Giá giảm dần">Giá giảm dần</option>
+                                    </select>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--dòng sp-->
+                    <div class="box">
+                        <!--3 sp dòng 1-->
+                        <div class="row" style="padding: 20px">
+                            <!--sp 1-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm1-1.jpg" alt="">
+                                        <img src="./images/sptdm1-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Dung dịch chấm mụn...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">250,000đ</div>
+                                            <del>300,000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--sp 2-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm2-1.jpg" alt="">
+                                        <img src="./images/sptdm2-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Son Kem Hera Sens...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">450,000đ</div>
+                                            <del>480.000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--sp 3-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm3-1.jpg" alt="">
+                                        <img src="./images/sptdm3-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Gel Rửa Tay Thành...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">89,000đ</div>
+                                            <del>120,000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--hết 3 sp dòng 1-->
+                            <!--sp 4-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm4-1.jpg" alt="">
+                                        <img src="./images/sptdm4-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Dung dịch chấm mụn...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">250,000đ</div>
+                                            <del>300,000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--sp 5-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm5-1.jpg" alt="">
+                                        <img src="./images/sptdm5-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Son Kem Hera Sens...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">450,000đ</div>
+                                            <del>480.000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--sp 6-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm6-1.jpg" alt="">
+                                        <img src="./images/sptdm6-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Gel Rửa Tay Thành...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">89,000đ</div>
+                                            <del>120,000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--sp 7-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm7-1.jpg" alt="">
+                                        <img src="./images/sptdm7-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Dung dịch chấm mụn...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">250,000đ</div>
+                                            <del>300,000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--sp 8-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm8-1.jpg" alt="">
+                                        <img src="./images/sptdm8-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Son Kem Hera Sens...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">450,000đ</div>
+                                            <del>480.000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--sp 9-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="./images/sptdm9-1.jpg" alt="">
+                                        <img src="./images/sptdm9-2.jpg" alt="">
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <button class="btn-flat-now btn-bag-hover btn-cart-add">
+                                                <i class='bx bxs-shopping-bag'></i>
+                                            </button>
+                                            <button class="btn-flat-like btn-like-hover btn-cart-add">
+                                                <i class='bx bxs-heart'></i>
+                                            </button>
+                                            <a href="TrangSanPhamChiTiet.html" class="btn-flat btn-hover btn-shop-now">chi tiết</a>
+                                        </div>
+                                        <div class="product-card-name">
+                                            Gel Rửa Tay Thành...
+                                        </div>
+                                        <div class="product-card-price">
+                                            <div class="curr-price">89,000đ</div>
+                                            <del>120,000đ</del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- hết đường dẫn -->
+                    <!-- chuyển trang -->
+                    <div class="box">
+                        <div class="box">
+                            <ul class="pagination">
+                                <li><a href="#"><img src="icons/left.png" /></a></li>
+                                <li><a href="#" class="active">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><img src="icons/right.png" /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- hết chuyển trang -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end products content -->
+    <!-- footer -->
+    <footer class="bg-second">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">LIÊN HỆ</h3>
+
+                    <ul class="menu">
+
+                        <li>
+                            <a href="#"><i class='bx bx-current-location'>&nbsp;</i>Hồ Chí Minh, Vietnam</a>
+                        </li>
+                        <li><a href="#"><i class='bx bx-phone-call'>&nbsp;</i>0123456789</a></li>
+                        <li><a href="#"><i class='bx bx-check'>&nbsp;</i>(miễn phí 24/7)</a></li>
+                        <li><a href="#"><i class='bx bx-mail-send'>&nbsp;</i>wasabi@gmail.com</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Sản phẩm</h3>
+                    <ul class="menu">
+                        <li><a href="4-Combo.html">Commbo</a></li>
+                        <li><a href="1-TrangDiem.html">Trang điểm</a></li>
+                        <li><a href="3-ChamSocMat.html">Chăm sóc mắt</a></li>
+                        <li><a href="2-ChamSocDaMat.html">Chăm sóc da mặt</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="col-3 col-md-4">
+                    <h3 class="footer-head">Dịch vụ</h3>
+                    <ul class="menu">
+                        <li><a href="TrangBlog1.html">Blog</a></li>
+                        <li><a href="TrangLienHe.html">Liên hệ</a></li>
+                        <li><a href="TrangKhuyenMai.html">Khuyến mãi</a></li>
+                        <li><a href="TrangGioiThieu.html">Các chính sách</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-3 col-md-12 col-sm-12">
+                    <div class="contact">
+                        <h3 class="contact-header">
+                            <img src="logo/logo-tron.png" height="100" style="opacity: 0.9" />
+                        </h3>
+                        <p align="center" style="margin-bottom: 10px"><b>Social Media</b></p>
+                        <ul class="contact-socials">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/" target="_blank">
+                                    <i class='bx bxl-facebook-circle'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/" target="_blank">
+                                    <i class='bx bxl-instagram-alt'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pinterest" href="https://www.pinterest.com/" target="_blank">
+                                    <i class='bx bxl-pinterest'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://twitter.com/ " target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-12 col-sm-12">
+                    <p align="center"><b>Đăng kí nhận tin để nhận ưu đãi hấp dẫn hơn!</b></p>
+                    <div class="subscribe">
+                        <input type="email" placeholder="Nhập email tại đây...">
+                        <button onclick="alert('Đăng kí nhận tin thành công!')">Đăng kí</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <a href="#">&copy; Bản quyền thuộc về WASABI Team</a>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- app js -->
+    <script src="./js/app.js"></script>
+    <script src="js/makeup-product.js"></script>
+</body>
+
+</html>

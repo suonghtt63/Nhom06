@@ -92,12 +92,23 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1-3-TrangDiemMoi.html" />
-    <Content Include="1-2-TrangDiemDaMat.html" />
-    <Content Include="1-1-TrangDiemVungMat.html" />
+    <Content Include="1-2-TrangDiemMoi.html" />
+    <Content Include="1-1-TrangDiemDaMat.html" />
+    <Content Include="1-3-TrangDiemMat.html" />
     <Content Include="1-TrangDiem.html" />
+    <Content Include="2-1-KemDuong-Serum.html" />
+    <Content Include="3-1KemDuongDa.html" />
+    <Content Include="3-2-SuaRuaMat.html" />
+    <Content Include="2-2-SuaRuaMat.html" />
+    <Content Include="3-3-TayTeBao.html" />
+    <Content Include="2-3-TayTeBao.html" />
+    <Content Include="3-4-MatNaMat.html" />
+    <Content Include="2-4-MatNa.html" />
     <Content Include="3-ChamSocMat.html" />
     <Content Include="2-ChamSocDaMat.html" />
+    <Content Include="4-1-ComboTrangDiem.html" />
+    <Content Include="4-2-ComboDaMat.html" />
+    <Content Include="4-3-ComboVungMat.html" />
     <Content Include="4-Combo.html" />
     <Content Include="Ad-2-Order.html" />
     <Content Include="Ad-7-Report.html" />
@@ -373,13 +384,14 @@
     <Content Include="images\thao.jpg" />
     <Content Include="images\trang-diem.jpg" />
     <Content Include="images\trang.jpg" />
+    <Content Include="index.html" />
     <Content Include="js\makeup-product.js" />
     <Content Include="js\all-product.js" />
     <Content Include="js\best-product.js" />
     <Content Include="logo\3-ngang.png" />
     <Content Include="logo\4.png" />
     <Content Include="logo\5-ngang.png" />
-    <Content Include="logo\nền trong suốt.png" />
+    <Content Include="logo\logo-tron.png" />
     <Content Include="MucB.html" />
     <Content Include="MucC.html" />
     <Content Include="QuenMatKhau.html" />
@@ -391,7 +403,6 @@
     <Content Include="TrangLienHeThanhCong.html" />
     <Content Include="TrangLienHe.html" />
     <Content Include="TrangGioiThieu.html" />
-    <Content Include="TrangChu.html" />
     <Content Include="js\app.js" />
     <Content Include="DangKy.html" />
     <Content Include="TrangChiTietBlog.html" />
@@ -399,6 +410,8 @@
     <Content Include="TrangBlog1.html" />
     <Content Include="TrangKhuyenMai.html" />
     <Content Include="TrangDatHangThanhCong.html" />
+    <Content Include="TrangSanPham-2.html" />
+    <Content Include="TrangSanPham-3.html" />
     <Content Include="TrangTaiKhoanCaNhan.html" />
     <Content Include="TrangThanhToan.html" />
     <Content Include="TrangSanPhamChiTiet.html" />

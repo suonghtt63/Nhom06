@@ -57,58 +57,56 @@
 
         <div align="center">
             <form action="AdminQuanLy.html" name="myForm" onsubmit="return validateForm()">
-                <div class="col-8 col-md-12" style="margin-bottom: 40px">
+                <div class="col-8 col-md-12">
                     <label>
                         <label>Địa chỉ Email:*</label>
-                        <input id="email" style="width: 75%; height: 50px; border-radius: 25px; font-size: 20px; border: none; padding-left: 15px" type="email" , placeholder="Nhập email tại đây" />
+                        <input id="email" name="email" style="width: 75%; height: 40px; border-radius: 20px; font-size: 16px; border: none; padding-left: 15px" type="email" , placeholder="Nhập email tại đây" />
                     </label>
                 </div>
-                <div class="col-8 col-md-12" style="margin-bottom: 40px">
+                <div class="col-8 col-md-12">
                     <label>
                         <label>Mật khẩu:* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                        <input id="matKhau" style="width: 75%; height: 50px; border-radius: 25px; font-size: 20px; border: none; padding-left: 15px" type="password" , placeholder="Nhập mật khẩu tại đây" />
+                        <input id="matKhau" name="matKhau" style="width: 75%; height: 40px; border-radius: 20px; font-size: 16px; border: none; padding-left: 15px" type="password" , placeholder="Nhập mật khẩu tại đây" />
                     </label>
                 </div>
                 <div class="col-12 col-md-12">
                     <input type="checkbox" onclick="ShowPassword()" /> Hiển thị mật khẩu
                 </div>
                 <div class="col-12 col-md-12">
-                    <input type="submit" value="Đăng nhập" class="btn-process btn-process-hover"/>
+                    <input type="submit" value="Đăng nhập" class="btn-process btn-process-hover" />
                 </div>
             </form>
+            <script type="text/javascript">
+                function ShowPassword() {
+                    var x = document.getElementById("matKhau");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+                function validateForm() {
+                    //Email phải được điền chính xác
+                    var email = document.forms["myForm"]["email"].value;
+                    var aCong = email.indexOf("@");
+                    var dauCham = email.lastIndexOf(".");
+                    if (email == "") {
+                        alert("Email không được để trống!");
+                        return false;
+                    }
+                    else if ((aCong < 1) || (dauCham < aCong + 2) || (dauCham + 2 > email.length)) {
+                        alert("Email bạn điền không chính xác!");
+                        return false;
+                    }
+                    //Mật khẩu phải điền
+                    var pass = document.forms["myForm"]["matKhau"].value;
+                    if (pass == "") {
+                        alert("Mật khẩu không được để trống!");
+                        return false;
+                    }
+                }
+            </script>
         </div>
-        <br />
-        <br />
-    </div>
-    <script type="text/javascript">
-        function ShowPassword() {
-            var x = document.getElementById("matKhau");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-        function validateForm() {
-            //Email phải được điền chính xác
-            var email = document.forms["myForm"]["email"].value;
-            var aCong = email.indexOf("@");
-            var dauCham = email.lastIndexOf(".");
-            if (email == "") {
-                alert("Email không được để trống");
-                return false;
-            }
-            else if ((aCong < 1) || (dauCham < aCong + 2) || (dauCham + 2 > email.length)) {
-                alert("Email bạn điền không chính xác");
-                return false;
-            }
-            //Mật khẩu phải điền
-            var pass = document.forms["myForm"]["matKhau"].value;
-            if (pass == "") {
-                alert("Mật khẩu không được để trống");
-                return false;
-            }
-        }
-    </script>
+        </div>
 </body>
 </html>
